@@ -22,4 +22,7 @@ class RestaurantController extends Controller
         //Mi faccio tornare la pagina restaurant.index, che userà come restaurants_list, l'array creato 
         return view('restaurant.index')->with('restaurants_list', $restaurants);
     }
+
+
+
 }

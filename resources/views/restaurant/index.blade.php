@@ -58,8 +58,29 @@ restaurantsList.css
                     </div>
                     <div class="info">
                         <div class="category_text"> Category:</div><div class="category">{{$restaurant->category}}</div>
-                        <div class="price_text"> Price:</div><div class="price"> {{$restaurant->price_from}}- {{$restaurant->price_to}}</div>
-                        <div class="rating_text"> Rating: </div><div class="rating"> Rating: </div>
+                        <div class="price_text"> Price:</div><div class="price"> {{$restaurant->price_from}}- {{$restaurant->price_to}} €</div>
+                        <div class="rating_text"> Rating: </div>
+                        <div class="rating"> 
+                            
+                            @for ($i = 0; $i < 5; $i++)
+                            
+                                @if ($i < value($restaurant->stars))            <!-- CAMBIAAAA con {{$restaurant->stars}}-->
+                                <i class="bi bi-star-fill"></i>
+                            
+                                @else
+                                <i class="bi bi-star"></i>
+
+                                    
+                                @endif
+
+
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="more">
+                        <a href="CAMBIA!">
+                            <h3>Wanna see more?</h3>
+                        </a>
                     </div>
                     
                 </div>

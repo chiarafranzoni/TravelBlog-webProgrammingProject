@@ -5,9 +5,9 @@
         text-align: center;
         margin-top: 3em;
         margin-bottom: 5em;
-        
-   
+    
 }
+
 .holder h3{
 
     text-align: center;
@@ -27,6 +27,7 @@
     display: flex  ;
     margin-bottom: 2em;
     background-color: lightgoldenrodyellow;
+    box-shadow: 1px 1px rgb(220,20,60);
    
 }
 
@@ -90,6 +91,31 @@
     border-radius: 2px;
     font-family: 'Lucida Sans';
 }
+
+.more{
+
+    text-align: center;
+    font-family: 'Poor Richard';
+    margin-top:4%;
+    display: flex;
+   
+}
+
+.more a{
+
+    margin: auto;
+    width: 20%;
+    text-decoration: none;
+    color: black;  /* colore del backgroud del bottone*/
+
+}
+
+.more a :hover{
+
+    text-shadow: 1px 1px black;
+}
+
+
 
 
 

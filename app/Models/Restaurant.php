@@ -15,7 +15,7 @@ class Restaurant extends Model
     public $timestamps= false; // non voglio che nel database ci siano le colonne CREATED AT e UPDATED AT
 
       
-    protected $fillable=['name','price_from','price_to','category','description','link','place_image'];
+    protected $fillable=['name','price_from','price_to','category','description','link','place_image', 'stars'];
 
     public function address(){    // Metodo che mi ritorna l'address dell'utente
 

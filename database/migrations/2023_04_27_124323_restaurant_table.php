@@ -29,6 +29,8 @@ return new class extends Migration
                 $table->String('description');
                 $table->String('link');
                 $table->String('place_image');
+                $table->integer('stars');
+
     
             });
 
