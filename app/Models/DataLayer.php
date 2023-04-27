@@ -15,6 +15,10 @@ class DataLayer extends Model
                             $street_and_number, $city,$province,$country,$postcode
     ) {
 
+     /**
+     *      METODI PER USER
+     * 
+     */
 
         // Aggiungo prima l'indirizzo relativo all'utente
         $address = new Address;
@@ -40,5 +44,19 @@ class DataLayer extends Model
 
         $user->save();
 
+    }
+
+
+    /**
+     *      METODI PER RESTAURANT
+     * 
+     */
+
+     // Metodo per avere la lista in ordine alfabetico dei ristoranti
+     // => usata in RestaurantController
+
+    public function listRestaurants(){
+
+        return Restaurant::orderBy('name','asc')->get();
     }
 }

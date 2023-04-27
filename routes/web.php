@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RestaurantController;
 
 
 /*
@@ -16,6 +17,13 @@ use App\Http\Controllers\UserController;
 
 Route::get('/',[FrontController::class, 'getHome'])-> name('home');
 
+
+
+/**
+ * 
+ *          USER 
+ * 
+ */
 
 // PER USER uso Rotta Restfull !
 
@@ -40,3 +48,13 @@ NB: DEVO COMUNQUE RIDEFINIRE SOTTO TUTTE LE FUNZIONI CHE NON SONO QUESTE 7
 
 
 Route::get('/user',[UserController::class,'login'])-> name('user.login');
+
+
+
+/**
+ * 
+ *          RESTAURANT
+ * 
+ */
+
+Route::resource('restaurant', RestaurantController::class);

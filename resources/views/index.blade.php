@@ -20,7 +20,7 @@ style.css
       Our favourites <!--Menù dropdown-->
     </a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="restaurants.html">Restaurants</a></li>
+      <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="hotels.html">Hotels</a></li>
       <li><a class="dropdown-item" href="hotels.html">Attractions</a></li>
     </ul>
@@ -105,7 +105,7 @@ style.css
 
                     <a class="carousel-link-text-a" 
                         href="  @if($i==0) Attrazioni.html
-                                @elseif($i==1) PuntiRistoro.html
+                                @elseif($i==1) {{route('restaurant.index')}}
                                 @else  Alloggi.html
                                 @endif" >
 

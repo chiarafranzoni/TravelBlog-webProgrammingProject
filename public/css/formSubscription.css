@@ -1,26 +1,4 @@
-/******     FOOTER      *********/
 
-footer {
-    font-size: 1rem;
-    text-align:center ;
-    font-family: 'Lucida Sans';
-    padding: 10px 0;
-    border-top: 2px solid rgb(55, 117, 231);
-}
-
-footer span{
-    color:cornflowerblue;
-}
-/*Fine Footer*/
-
-/* NAVBAR*/
-
-.current{   /* È la classe associata ad Home*/
-    background-color:  darkgray;
-
-}
-
-/*Fine navbar*/
 
 /* INIZIO FORM*/
 
@@ -115,18 +93,3 @@ label{
 
 }
 
-
-.login{     /* Stile per pulsante Login*/
-
-    --bs-btn-border-color: black;
-    --bs-btn-hover-border-color: black;
-    --bs-btn-hover-bg: darkgray;
-    --bs-btn-color: black;
-    --bs-btn-hover-color: black;
-    --bs-btn-font-size: 0.8em;
-    --bs-btn-padding-x: 0.5em;
-    --bs-btn-padding-y: 0.3em;
-    font-family: 'Lucida Sans';
-    display: flex !important;
-
-}

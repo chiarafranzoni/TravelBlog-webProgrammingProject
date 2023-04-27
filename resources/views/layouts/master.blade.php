@@ -20,6 +20,7 @@
         <!-- bootstrap.min.css : non ha gli spazi per risparmare memoria != bootstrap.css -->
 
         <link rel="stylesheet" href="{{ url('/')}}/css/bootstrap.min.css">  <!-- dice dove trovare il file bootstap.min.css, per trovare sempre gli URL-->
+        <link rel="stylesheet" href="{{ url('/')}}/css/general.css">  <!-- dice dove trovare il file bootstap.min.css, per trovare sempre gli URL-->
 
         <link rel="stylesheet" href="{{ url('/')}}/css/@yield('stile')">  <!-- Per applicare una formattazione css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Pe usare le icone bootrstrap-->
