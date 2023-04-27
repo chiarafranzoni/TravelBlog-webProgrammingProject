@@ -7,7 +7,7 @@
 @endsection
 
 @section('stile')
-form.css
+formSubscription.css
 @endsection
 
 @section('left-navbar')
@@ -128,7 +128,7 @@ form.css
             <br>
 
             <a class="btn btn-secondary" href="{{route('home')}}"> Cancel</a>
-            <input class="btn subscribe_form" type="submit" value="Subscribe">
+            <input class="btn subscribeForm-btn" type="submit" value="Subscribe">
           
 
         </form>
@@ -147,10 +147,15 @@ form.css
 
 @section('footer')
 
-    <div class="container">
-        <small>
-            Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
-        </small>
-    </div>
+
+    <footer class="page-footer">
+
+        <div class="container">
+            <small>
+                Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
+            </small>
+        </div>
+    
+    </footer>
 
 @endsection

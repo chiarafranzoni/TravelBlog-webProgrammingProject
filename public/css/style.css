@@ -183,7 +183,15 @@ table{
 
 }
 
-.subscribe{
+/* Fine testo info*/
+
+
+/*
+                BUTTON STYLES
+
+*/
+
+.subscribe{     /* Stile per pulsante Subscribe*/
 
     --bs-btn-bg:  #ee9b00;  /* colore del backgroud del bottone*/
     --bs-btn-hover-bg: #ca6702;
@@ -193,9 +201,8 @@ table{
 
 }
 
-.login{
+.login{     /* Stile per pulsante Login*/
 
-    
     --bs-btn-border-color: black;
     --bs-btn-hover-border-color: black;
     --bs-btn-hover-bg: darkgray;
@@ -206,9 +213,6 @@ table{
     --bs-btn-padding-y: 0.3em;
     font-family: 'Lucida Sans';
     display: flex !important;
-
-
-
 
 }
 

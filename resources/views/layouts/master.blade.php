@@ -23,6 +23,8 @@
 
         <link rel="stylesheet" href="{{ url('/')}}/css/@yield('stile')">  <!-- Per applicare una formattazione css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Pe usare le icone bootrstrap-->
+  
+
 
         <!-- Javascript -->
         <script src="{{ url('/')}}/js/bootstrap.bundle.min.js"></script>  <!-- Per riuscire ad includere javascript-->
@@ -43,7 +45,6 @@
                 </ul>
               </div>
 
-              <!-- CAMBIA-->
               <a class="btn login" href="{{route('user.login')}}"> Login </a>
             </div>
           </nav>
@@ -51,18 +52,14 @@
           <div class="container">
               @yield('breadcrumb')
           </div>
-
-    
             
             @yield('corpo')    
 
     </body>
 
 
-  <footer class="page-footer">
-
     @yield('footer') 
   
-  </footer>
+  
    
 </html>

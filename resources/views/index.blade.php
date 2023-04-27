@@ -184,10 +184,15 @@ style.css
 
 @section('footer')
 
-    <div class="container">
-        <small>
-            Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
-        </small>
-    </div>
+
+    <footer class="page-footer">
+
+        <div class="container">
+            <small>
+                Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
+            </small>
+        </div>
+    
+    </footer>
 
 @endsection

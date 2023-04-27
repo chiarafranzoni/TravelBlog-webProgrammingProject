@@ -1,0 +1,117 @@
+
+
+
+/* NAVBAR*/
+
+.current{   /* È la classe associata ad Home*/
+    background-color:  darkgray;
+
+}
+
+/*Fine navbar*/
+
+/* INIZIO FORM*/
+
+.external{      /*Definisco il container esterno per il colore*/
+    height: 100vh;
+    display: flex;
+    align-items: center; /*posiziono la form al centro*/
+    background-color: #94D2BD;
+    padding: 3em;
+
+}
+
+
+.container{     /*Definisco il container interno in cui inserisco il div row*/
+
+    max-width: 50em;
+    width: 100%;
+    background-color: rgba(255, 255,255, 0.5);
+    padding: 0 3em;
+}
+
+
+.title-text h3{
+
+
+    text-align: center;
+    margin-bottom: 1em;
+    font-family: 'Lucida Handwriting';
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    
+    color: #005F73;
+}
+
+
+form{
+    position: relative;
+}
+
+
+label{
+
+    font-family: Oswald;
+    text-transform: uppercase;
+    
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+}
+
+.form-control{
+
+        background: #fff;
+        border:1px solid #001219;
+        border-radius: 1em;
+}
+
+.input-box{         /* Per allineare icona e box */
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.input-box input{       /*Per spaziare le icone dalla form*/
+    
+        width: 100%;
+        padding-left: 3em;
+}
+
+.input-box i{       /*Per spaziare le icone dalla form*/
+    padding-left: 1em;
+    position: absolute;
+}
+
+
+/* Fine form */
+
+
+/*
+
+            BUTTON STYLES
+            
+*/
+
+
+
+
+
+.login{     /* Stile per pulsante Login*/
+
+    --bs-btn-border-color: black;
+    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-bg: darkgray;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    display: flex !important;
+
+}
