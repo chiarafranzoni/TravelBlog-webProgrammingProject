@@ -1,0 +1,222 @@
+
+/*
+NOTE:
+        - rem = 10px di default, GLOBALE
+        - em = 10px di default, LOCALE (prende size del parent (rem))
+*/
+
+body{
+    color: black;
+}
+
+/* NAVBAR*/
+
+.current{   /* È la classe associata ad Home*/
+    background-color:  darkgray;
+
+}
+
+/*Fine navbar*/
+
+.header-sezione{
+
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-bottom: double lightskyblue;
+    background: rgb(225, 239, 247);
+}
+
+.container_page{
+
+    text-align: center;
+    margin-top: 3em;
+    margin-left: 4em;
+    margin-right: 4em;
+
+}
+
+/*CAROSELLO*/
+
+.carousel {     /*Definisco la struttura del carosello*/
+    margin: auto;
+    width: 100%;
+    border: 1px solid black;
+
+}
+
+.centered {     /*Definisco il container bianco nel carosello*/              /* NB: modifica con responsive*/
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 10%;
+    background:rgb(255, 255, 255, 0.3);  /* il quarto parametro esprime l'opacità*/ 
+    display: table;
+  }
+
+.carousel-text{     /*Definisco il div che contiene il testo del titolo*/
+
+    display:table-cell;
+    vertical-align:middle;
+    
+}
+  
+.carousel-text h5{  /*Definisco il testo del titolo*/
+    font-family: 'Lucida Sans';
+    font-size:  4rem;   /* NB: un rem = 10 px*/
+    font-weight: 900;
+    color:black;
+    position: relative;
+    text-align: center;
+    text-shadow: 2px 2px cornflowerblue;
+    
+}
+
+.carousel-link {     /*Definisco il container con il link*/              /* NB: modifica con responsive*/
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;
+    height: auto;
+    background:cornflowerblue;  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    
+  }
+
+.carousel-link-text{     /*È il div nel div per centrare correttamente il link*/
+
+    
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    top: 20%;
+
+    
+}
+  
+
+
+.carousel-link p{     /* Inserisco la formattazione per il testo del link */
+
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    font-family: 'Lucida Sans';
+    font-size: auto;
+    font-weight: 150;
+    color:white;
+    text-align: center;  
+   
+ }
+   
+
+
+.carousel-link-text-a :hover{     /* NB: applico questa formattazione solo quando vado sui link col MOUSE*/
+
+    background-color: black;
+
+}
+
+/*Fine carosello*/
+
+
+/******     FOOTER      *********/
+
+    footer {
+        font-size: 1rem;
+        text-align:center ;
+        font-family: 'Lucida Sans';
+        padding: 10px 0;
+        border-top: 2px solid rgb(55, 117, 231);
+    }
+    
+    footer span{
+        color:cornflowerblue;
+    }
+/*Fine Footer*/
+
+table{
+    width: 100%;
+}
+
+/* IMMAGINE INFO*/
+.info-img{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.25rem;
+    max-width: 75%;
+    text-align: center;
+    height: auto;
+}
+
+/* TITOLO TESTO INFO*/
+.info_text-title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    
+    color: #AE2012;
+
+}
+
+.info_text{
+
+    padding-right: 2em;
+    font-family: 'Poppins';
+    font-size: 18px;
+    line-height: 30px;
+
+}
+
+.subscribe{
+
+    --bs-btn-bg:  #ee9b00;  /* colore del backgroud del bottone*/
+    --bs-btn-hover-bg: #ca6702;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    font-family: 'Lucida Sans';
+
+}
+
+.login{
+
+    
+    --bs-btn-border-color: black;
+    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-bg: darkgray;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    display: flex !important;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
