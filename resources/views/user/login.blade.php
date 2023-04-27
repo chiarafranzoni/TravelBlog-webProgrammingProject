@@ -35,9 +35,6 @@ formLogin.css
 
     <div class="container ">
 
-      <div class="empty-space" style="height: 4em"> 
-        <!--  Inserisco dello spazio vuoto in testa al form -->
-      </div>
 
       <div class="row ">
 
@@ -60,19 +57,23 @@ formLogin.css
                 <input class='form-control' type="password" id="password" name="password" placeholder="Password"> 
                 </div>
 
+                <div class="buttonHolder">
+                    <input class="btn loginSubmit" type="submit" value="Login">
+                </div>
 
-                <div class="row align-items-center remember">
-                    <input type="checkbox">Remember Me
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Login" class="btn float-right login_btn">
-                </div>
             </form>
+
+            <div class="holder">
+                <p>Don't have an account yet?</p>
+                <a href="{{route('user.create')}}"> 
+                    <p> Subscribe now !</p>
+                </a>
+              
+
+            </div>
         </div>
           
-        <div class="empty-space" style="height: 4em"> 
-            <!--  Inserisco dello spazio vuoto in coda al form -->
-        </div>
+        
     
     </div>
           

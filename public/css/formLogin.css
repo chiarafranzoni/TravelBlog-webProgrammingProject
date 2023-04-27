@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Numans');
 
 
 /* NAVBAR*/
@@ -13,10 +13,13 @@
 /* INIZIO FORM*/
 
 .external{      /*Definisco il container esterno per il colore*/
-    height: 100vh;
+
+    height: calc(100vh - 56px); /* Sottraggo a tutta l'altezza visibile, l'altezza della navbar, per evitare di*/
     display: flex;
     align-items: center; /*posiziono la form al centro*/
-    background-color: #94D2BD;
+    background-image: url('https://thumbs.dreamstime.com/b/landscape-vector-illustration-game-background-size-x-70937769.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 3em;
 
 }
@@ -24,25 +27,32 @@
 
 .container{     /*Definisco il container interno in cui inserisco il div row*/
 
-    max-width: 50em;
+    max-width: 30em;
     width: 100%;
-    background-color: rgba(255, 255,255, 0.5);
+    background-color: rgba(255, 255,255, 0.7);
     padding: 0 3em;
 }
 
+.title-text{
+
+    height: 3em;
+    margin-bottom: 2em;
+    margin-top: 2em;
+ 
+}
 
 .title-text h3{
-
 
     text-align: center;
     margin-bottom: 1em;
     font-family: 'Lucida Handwriting';
     font-size: 48px;
     line-height: 50px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0px;
     
     color: #005F73;
+    text-shadow: 2px 2px cornflowerblue;
 }
 
 
@@ -88,6 +98,36 @@ label{
 }
 
 
+.holder{
+    text-align: center;
+    margin-top: 1.5em;
+    display: flex;
+    
+}
+
+.holder p{
+
+    font-family: Oswald;
+    font-size: 1.3em;
+
+}
+
+.holder a{
+
+    text-decoration: none;
+    margin-left: 1.2em;
+    color: #005F73;  /* colore del backgroud del bottone*/
+
+}
+
+.holder a :hover{
+    
+color: cornflowerblue;     
+}
+
+
+
+
 /* Fine form */
 
 
@@ -96,6 +136,24 @@ label{
             BUTTON STYLES
             
 */
+
+.buttonHolder{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.loginSubmit{
+
+    --bs-btn-bg:  cornflowerblue;  /* colore del backgroud del bottone*/
+    --bs-btn-hover-bg: #005F73;
+    --bs-btn-color: white;
+    --bs-btn-hover-color: white;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    
+}
 
 
 
