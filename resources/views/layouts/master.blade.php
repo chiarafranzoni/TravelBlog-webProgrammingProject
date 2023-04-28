@@ -29,7 +29,10 @@
 
         <!-- Javascript -->
         <script src="{{ url('/')}}/js/bootstrap.bundle.min.js"></script>  <!-- Per riuscire ad includere javascript-->
+        <script src="{{ url('/')}}/js/bootstrap.min.js"></script> 
+        <script src="{{ url('/')}}/js/toggle.js"></script>                <!-- Per riuscire a fare il toggle della password e dell'icona-->
         <script src="http://code.jquery.com/jquery.js"></script>
+      
     </head>
 
     <body>

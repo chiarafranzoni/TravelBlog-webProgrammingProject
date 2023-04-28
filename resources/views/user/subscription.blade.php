@@ -87,9 +87,12 @@ formSubscription.css
             <br>
             
             <label for="password"> Password</label>
-            <div class="input-box">    
-              <i class="bi bi-lock"></i>            
-              <input class='form-control' type="password" id="password" name="password" placeholder="Password"> 
+            <div class="input-box ">    
+                <i class="bi bi-lock"></i>            
+                <input class='form-control' type="password" id="password" name="password" placeholder="Password"> 
+                <div class="eye">
+                    <i  class="bi bi-eye" onclick="passwordToggle()" id="eye"></i>
+                </div>
             </div>
 
             <br>
