@@ -35,11 +35,13 @@ formSubscription.css
 
     <div class="container">
 
-      <div class="empty-space" style="height: 4em"> 
-        <!--  Inserisco dello spazio vuoto in testa al form -->
-      </div>
 
       <div class="row">
+
+        <div class="title-text">
+          <h3 > Subscribe </h3>
+
+        </div>
 
         <!-- Con metodo post: aggiungo queste info a database, invocando il metodo store nello UserController-->
         <form method="post" action="{{route('user.store')}}">
@@ -134,10 +136,7 @@ formSubscription.css
         </form>
       </div>
 
-      <div class="empty-space" style="height: 4em"> 
-        <!--  Inserisco dello spazio vuoto in coda al form -->
-      </div>
-
+   
     </div>
 
   </div>
