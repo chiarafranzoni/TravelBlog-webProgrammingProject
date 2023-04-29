@@ -29,7 +29,6 @@
 
         <!-- Javascript -->
         <script src="{{ url('/')}}/js/bootstrap.bundle.min.js"></script>  <!-- Per riuscire ad includere javascript-->
-        <script src="{{ url('/')}}/js/bootstrap.min.js"></script> 
         <script src="{{ url('/')}}/js/toggle.js"></script>                <!-- Per riuscire a fare il toggle della password e dell'icona-->
         <script src="http://code.jquery.com/jquery.js"></script>
       
@@ -38,8 +37,8 @@
     <body>
 
         <!-- PER CREARE UNA NAVBAR-->
+
       
-        
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

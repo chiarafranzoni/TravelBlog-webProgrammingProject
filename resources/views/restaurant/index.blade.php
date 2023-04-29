@@ -30,6 +30,47 @@ restaurantsList.css
 
 
 @section('corpo')
+
+<div class="external">
+
+<div class="continer ">
+    
+    <div class="card">
+
+            <div class="row no-gutters"> <!-- Setta margini a 0-->
+                <div class="col-xs-7 col-md-6 col-lg-5">
+                    <img src="img/viaggio.jpg" alt="Photo" class="card-img h-100">
+                </div>
+
+                <div class="col-xs-5  col-md-6 col-lg-7">
+                    <div class="card-body">
+                        <h5 class="card-title"> Title <span class="badge badge-pill bg-primary">Top Rating</span></h5>
+                        <p class="card-text">
+                            <span class="badge badge-pill bg-primary"> <i class="bi bi-1-circle-fill"></i>
+                                Categoria</span>
+                            <span class="badge badge-pill bg-primary bs-color"> Rating</span>
+                            <small class="card-subtitle mb-3"> Price</small> 
+                
+                        </p>
+                        <p class="card-text">Learn how to buil responsive item belbelbeiyugyhdyughjdiuhjiujidhujdih</p>
+          
+                        <p class="card-text float-right">
+                            <small class="text-muted">See More !</small>
+                        </p>
+                        <div class='clear-fix w-100'></div>
+                        <a href="" class="btn btn-secondary ">
+                            See More!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+</div>
+
+
+
  <div class="container">
 
     <div class="holder">
@@ -48,11 +89,11 @@ restaurantsList.css
             
             <div class="external">
 
-                <div class="image col-sm-2 col-md-3">
+                <div class="image col-sm-2 col-md-4">
                     <img src="{{$restaurant->place_image}}" alt="Photo">
                 </div>
                 
-                <div class=" container about col-sm-10 col-md-9">
+                <div class=" container about col-sm-10 col-md-8">
                     <div class="name">
                         <h1>{{$restaurant->name}}</h1>
                     </div>
