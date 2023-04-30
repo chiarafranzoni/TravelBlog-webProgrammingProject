@@ -24,14 +24,16 @@
 
         <link rel="stylesheet" href="{{ url('/')}}/css/@yield('stile')">  <!-- Per applicare una formattazione css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Pe usare le icone bootrstrap-->
-  
+        
+ 
 
 
         <!-- Javascript -->
         <script src="{{ url('/')}}/js/bootstrap.bundle.min.js"></script>  <!-- Per riuscire ad includere javascript-->
         <script src="{{ url('/')}}/js/toggle.js"></script>                <!-- Per riuscire a fare il toggle della password e dell'icona-->
         <script src="http://code.jquery.com/jquery.js"></script>
-      
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> <!-- Per usare le icon fas-->
+
     </head>
 
     <body>
