@@ -31,5 +31,17 @@ class Address extends Model
 
     }
 
+    public function housing(){    // Utente a cui è legato l'address
+
+        return $this->hasOne(Housing::class,'address_id');
+
+    }
+
+    public function attraction(){    // Utente a cui è legato l'address
+
+        return $this->hasOne(Attraction::class,'address_id');
+
+    }
+
 
 }

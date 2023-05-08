@@ -21,8 +21,8 @@ formSubscription.css
     </a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Hotels</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
+      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
     </ul>
 </li>
 @endsection

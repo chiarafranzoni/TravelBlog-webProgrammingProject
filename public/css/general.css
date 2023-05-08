@@ -5,6 +5,21 @@
 
 }
 
+
+.login{     /* Stile per pulsante Login*/
+
+    --bs-btn-border-color: black;
+    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-bg: darkgray;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    display: flex !important;
+
+}
 /*Fine navbar*/
 
 
@@ -24,17 +39,3 @@ footer span{
 /*Fine Footer*/
 
 
-.login{     /* Stile per pulsante Login*/
-
-    --bs-btn-border-color: black;
-    --bs-btn-hover-border-color: black;
-    --bs-btn-hover-bg: darkgray;
-    --bs-btn-color: black;
-    --bs-btn-hover-color: black;
-    --bs-btn-font-size: 0.8em;
-    --bs-btn-padding-x: 0.5em;
-    --bs-btn-padding-y: 0.3em;
-    font-family: 'Lucida Sans';
-    display: flex !important;
-
-}

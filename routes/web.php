@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\HousingController;
+use App\Http\Controllers\AttractionController;
 
 
 /*
@@ -58,3 +60,23 @@ Route::get('/user',[UserController::class,'login'])-> name('user.login');
  */
 
 Route::resource('restaurant', RestaurantController::class);
+
+
+
+
+/**
+ * 
+ *          HOUSING
+ * 
+ */
+
+ Route::resource('housing', HousingController::class);
+
+
+ /**
+ * 
+ *          ATTRACTION
+ * 
+ */
+
+ Route::resource('attraction', AttractionController::class);

@@ -17,7 +17,7 @@ class RestaurantController extends Controller
 
         $restaurants=array(); // Creo un array di ristoranti, in cui inserirò ciascun ristorante in ordine alfabetico
 
-        $restaurants=$dl->listRestaurants();    // Invovo sull'array il metodo listRestaurants() del DataLayer
+        $restaurants=$dl->listRestaurants();    // Invoco il metodo listRestaurants() del DataLayer, per costruire l'aray dei ristoranti
 
         //Mi faccio tornare la pagina restaurant.index, che userà come restaurants_list, l'array creato 
         return view('restaurant.index')->with('restaurants_list', $restaurants);

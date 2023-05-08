@@ -3,11 +3,11 @@
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->
 @section('title') 
-    Restaurants
+    Attraction
 @endsection
 
 @section('stile')
-restaurantsList.css
+attractionsList.css
 @endsection
 
 @section('left-navbar')
@@ -34,7 +34,7 @@ restaurantsList.css
 
 
     <div class="holder">
-        <h3> Restaurants</h3>
+        <h3> Attraction </h3>
     </div>
 
 
@@ -43,7 +43,7 @@ restaurantsList.css
 
             <!-- Da RestaurantController, mi arriva una restaurants_list -->
 
-            @foreach ($restaurants_list as $restaurant) <!--Per ciascun ristornate della lista-->
+            @foreach ($attractions_list as $attraction) <!--Per ciascun ristornate della lista-->
 
                             
                 <div class="external">
@@ -54,27 +54,26 @@ restaurantsList.css
 
                                 <div class="row no-gutters"> <!-- Setta margini a 0-->
                                     <div class="col-xs-7 col-md-6 col-lg-5">
-                                        <img src="{{$restaurant->place_image}}" alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                        <img src="{{$attraction->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
                                     </div>
 
                                     <div class="col-xs-5  col-md-6 col-lg-7">
                                         <div class="card-body">
                                             <h5 class="card-title" style="font-family: 'Poor Richard'; font-size: 40px;"> 
-                                                {{$restaurant->name}} 
-                                                @if (value($restaurant->stars)==5)
-                                                    
-                                                    <span class="badge badge-pill top-rating">Top Rating</span>
-                                                @endif
+                                                {{$attraction->name}} 
+
+                                                 <!-- STampo stelline : vedi restaurant --> 
+
                                             </h5>
                                             <p class="card-text">
                                                 <span class="badge badge-pill bg-primary"> <i class="fas fa-pizza-slice"></i>
-                                                    {{$restaurant->category}}
+                                                    {{$attraction->type}}
                                                 </span>
                                                 <span class="badge badge-pill bg-primary bs-color"> Rating</span>
                                                 <small class="card-subtitle mb-3"> Price</small> 
                                     
                                             </p>
-                                            <p class="card-text">{{$restaurant->description}}</p>
+                                            <p class="card-text">{{$attraction->info->description}}</p>
                             
                                             <p class="card-text float-right">
                                                 <small class="text-muted">See More !</small>

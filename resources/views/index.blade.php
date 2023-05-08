@@ -21,8 +21,8 @@ style.css
     </a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Hotels</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('housing.index')}}">Hotels</a></li>
+      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
     </ul>
 </li>
 
@@ -104,9 +104,9 @@ style.css
                     <!--  RIQUADRO CON LINK PER PAGINA : in modo condizionale scelgo il link-->
 
                     <a class="carousel-link-text-a" 
-                        href="  @if($i==0) Attrazioni.html
+                        href="  @if($i==0) {{route('attraction.index')}}
                                 @elseif($i==1) {{route('restaurant.index')}}
-                                @else  Alloggi.html
+                                @else  {{route('housing.index')}}
                                 @endif" >
 
 
