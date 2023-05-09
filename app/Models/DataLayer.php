@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataLayer extends Model
+class DataLayer 
 {
-    use HasFactory;
 
+     /**
+     *      METODI PER USER
+     * 
+     */
 
     // Metodo per aggiungere un user alla table
     public function addUser($firstname,$lastname,$email, $telephone,$password,
                             $street_and_number, $city,$province,$country,$postcode
     ) {
 
-     /**
-     *      METODI PER USER
-     * 
-     */
+    
 
         // Aggiungo prima l'indirizzo relativo all'utente
         $address = new Address;
@@ -45,6 +45,30 @@ class DataLayer extends Model
         $user->save();
 
     }
+
+    public function validUser($email, $password){
+
+        // Recupero l'array di password degli utenti che hanno mail corrispondente
+
+        $users= myUser::where('email',$email)->get(['password']);
+
+        if(count($users)==0){
+            return false;
+        }
+
+        return ($password==($users[0]->password)); // Confronto le password criptate con md5, se sono uguali tutto è andato bene
+
+    }
+
+    public function getUserName($email){
+
+        // Ritorna l'array di utenti con mail corrispondente a mail
+
+        $users= myUser::where('email',$email)->get();
+        return $users[0]->name;  //recupero il nome corrispondente all'autente nella prima cella dell'array
+    }
+
+
 
 
     /**

@@ -52,25 +52,7 @@
                 </ul>
               </div>
 
-              <!-- NEl FRONT CONTROLLER: faccio un controllo sul login, per poi settare correttamente il booleano $logged-->
-
-              
             
-              @if($logged)
-                <li class="nav-item dropdown" style="list-style-type: none">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Welcome {{$loggedName}}<!--Menù dropdown-->
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('restaurant.index')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="{{route('housing.index')}}"><i class='fas fa-globe-americas' style="padding-right: 15px"></i>Your adventure</a></li>
-                    <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-power " style="padding-right: 15px"></i>Logout</a></li>
-                  </ul>
-                </li>
-              @else
-                <a class="btn login" href="{{route('user.login')}}"> Login </a>
-          
-              @endif
 
             </div>
           </nav>

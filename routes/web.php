@@ -8,6 +8,7 @@ use App\Http\Controllers\HousingController;
 use App\Http\Controllers\AttractionController;
 
 
+
 /*
         Nelle route specifico:
             - un metodo http (es. get)
@@ -21,6 +22,7 @@ Route::get('/',[FrontController::class, 'getHome'])-> name('home');
 
 
 
+
 /**
  * 
  *          USER 
@@ -29,7 +31,7 @@ Route::get('/',[FrontController::class, 'getHome'])-> name('home');
 
 // PER USER uso Rotta Restfull !
 
-Route::resource('user', UserController::class);
+//Route::resource('user', UserController::class);
 
 /* Specifico risorsa user e il controller ad esso associata 
 
@@ -47,9 +49,14 @@ NB: DEVO COMUNQUE RIDEFINIRE SOTTO TUTTE LE FUNZIONI CHE NON SONO QUESTE 7
 
 */
 
+Route::get('/user/login',[UserController::class,'login'])-> name('user.login');
+Route::post('/user/login',[UserController::class, 'authentication'])->name('user.authentication');
 
 
-Route::get('/user',[UserController::class,'login'])-> name('user.login');
+Route::get('/user/create',[UserController::class,'create'])-> name('user.create');
+Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
+Route::get('/user/logout',[UserController::class, 'logout'])->name('user.logout');
+
 
 
 
@@ -80,3 +87,4 @@ Route::resource('restaurant', RestaurantController::class);
  */
 
  Route::resource('attraction', AttractionController::class);
+

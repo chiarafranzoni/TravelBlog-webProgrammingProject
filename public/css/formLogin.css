@@ -13,6 +13,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     padding: 3em;
+
+    @media screen and (max-width: 525px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding:1.5em;
+    }
 }
 
 
@@ -24,6 +29,11 @@
     padding: 0 3em;
     
     border-radius: 0.4em;
+
+    @media screen and (max-width: 571px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding: 0 1em;
+    }
 }
 
 .title-text{
@@ -43,7 +53,13 @@
     
     color: #005F73;
     text-shadow: 2px 2px cornflowerblue;
+
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 42px;
+    }
 }
+
 
 
 form{
@@ -98,9 +114,17 @@ label{
 }
 
 .holder{
-    text-align: center;
+
     margin-top: 1.5em;
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 405px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        display: block;
+        text-align:center;
+    }
     
 }
 
@@ -109,6 +133,13 @@ label{
     font-family: Oswald;
     font-size: 1.3em;
 
+    @media screen and (max-width: 571px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 1.1em;
+    }
+    
+   
+
 }
 
 .holder a{
@@ -116,7 +147,12 @@ label{
     text-decoration: none;
     margin-left: 1.2em;
     color: #005F73;  /* colore del backgroud del bottone*/
-
+    @media screen and (max-width: 405px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        position: relative;
+         top: -2em;
+    }
+    
 }
 
 .holder a :hover{

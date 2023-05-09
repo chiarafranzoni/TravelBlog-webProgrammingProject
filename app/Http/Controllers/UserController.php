@@ -4,24 +4,67 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use App\Models\myUser; //Specifico che voglio usare quel modello
 use App\Models\DataLayer;
-use Illuminate\Support\Facades\Redirect; // Importo la classe
-
+use App\Models\myUser;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
+
+/*
+
+            LOGIN
+    
+    */
+
+
 {
+    public function login(){
+        return view('user.login');
+    }
+
+    // PASSO User e password x autenticarmi
+    public function authentication(Request $req){    /* HTTP Request => per mandare dati da form su database */
+
+        session_start();
+        
+        /* Verifico se esiste lo username e se la password corrisponde */
+
+        $dl= new DataLayer();
+        if($dl->validUser($req->input('email'),$req->input('password'))){ // PAsso al metodo del datalayer lo user e la password nella form
+
+            $_SESSION['logged']=true;
+            $_SESSION['loggedName']=$dl->getUserName($req->input('email')); // Chiedo il nome dell'utente usando come input della richiesta la mail
+            $_SESSION['email']=$req->input('email');
+
+        
+            return Redirect::to(route('home'));   // Se è valido passo la rotta che dà l'elenco dei libri
+        }
+
+        return view('user.errorLogin');   // Altrimenti passo la vista di errore
+        
+    }
+
+    public function logout(){
+
+        session_start();        /* SERVE INIZIARE LA SESSIONE PER POI DISTRUGGERLA ! */
+        session_destroy();
+
+        return Redirect::to(route('home')); 
+    }
+
+
+    /*
+
+            SUBSCRIPTION
+    
+    */
 
     public function create()    // funzione per Creare un utente -> iscrizione
     {
         return view('user.subscription');
     }
 
-    public function login()
-    {
-        return view('user.login');
-    }
+    // Per memorizzare l'utente dalla subscription
 
     public function store(Request $req)
     { //Request serve per mandare la richiesta http
@@ -33,4 +76,5 @@ class UserController extends Controller
         
         return Redirect::to(route('home')); // Importa la classe Redirect!!
     }
+
 }

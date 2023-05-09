@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.form') 
 <!-- Prendo il template realizzato in layout.master e sostituisco tutti i place holder @-->
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->

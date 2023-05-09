@@ -22,6 +22,15 @@
     
     color: #005F73;
     text-shadow: 2px 2px cornflowerblue;
+   
+    @media screen and (max-width: 450px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        font-size: 50px;
+    }
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        font-size: 40px;
+    }
 }
 
 /* INIZIO FORM*/
@@ -37,6 +46,11 @@
     display: flex;
     align-items: center; /*posiziono la form al centro*/
     padding: 3em;
+
+    @media screen and (max-width: 500px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        padding: 1.5em;
+    }
 }
 
 
@@ -47,7 +61,10 @@
     background-color: rgba(255, 255,255, 0.7);
     padding: 0 3em;
    
-   
+    @media screen and (max-width: 500px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        padding: 0 1.5em;
+    }
 }
 
 form{
