@@ -14,7 +14,7 @@ class UserController extends Controller
 
             LOGIN
     
-    */
+*/
 
 
 {
@@ -75,6 +75,22 @@ class UserController extends Controller
                     , $req->input('password'), $req->input('street_and_number'),$req->input('city'),$req->input('province'),$req->input('country'),$req->input('postcode'));
         
         return Redirect::to(route('home')); // Importa la classe Redirect!!
+    }
+
+
+
+    /*
+
+            PROFILE & PERSONAL-INFO
+    */
+
+    // Qui sotto TUTTO ha per forza LOGGED=true e loggedName= $_SESSION['loggedName'], perchè quando sono qui sono già loggato!
+    
+    public function profile(){
+
+        session_start();
+
+        return view('user.profile')->with('logged',true)->with('loggedName', $_SESSION['loggedName']); 
     }
 
 }

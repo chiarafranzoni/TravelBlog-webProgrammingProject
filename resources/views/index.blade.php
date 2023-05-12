@@ -138,45 +138,43 @@ style.css
 
     <!--  FINE CAROSELLO -->
 
-    <div class="empty-space" style="height: 7em"> 
-        <!--  Inserisco dello spazio vuoto alla fine del carosello -->
-    </div>
+    <div style="overflow:hidden;">
 
+        <div class="row" style="padding-top: 7em; overflow:hidden;">
 
-    <div class="row">
+            <!-- NB: la somma eve sempre essere 12 -->
 
-        <!-- NB: la somma eve sempre essere 12 -->
+            <div class="col-sm-5 col-md-4" >
+                <!--  Inserisco immagine in parte a info -->
 
-        <div class="col-sm-5 col-md-4">
-            <!--  Inserisco immagine in parte a info -->
+                <img class="info-img" src="img/round-info-border-text.jpg">
 
-            <img class="info-img" src="img/round-info-border-text.jpg">
+            </div>
+
+            <div class="col-sm-7 col-md-8">
+
+                <h2 class="info_text-title"> Lorem Ipsum</h2>
+
+                <p class="info_text">
+                    Vestibulum non urna tincidunt, convallis purus a, vulputate sapien. Sed cursus eros massa, eget auctor purus vehicula sit amet.
+                    Nam euismod dui molestie mauris bibendum venenatis. Aenean ipsum nibh, ornare et malesuada vitae, hendrerit sit amet ante.
+                    Quisque id mattis purus. Nunc elementum consectetur euismod. Sed odio nibh, posuere in semper in, egestas ac dui.
+                    Sed id ultricies risus, eget facilisis mauris. Nulla facilisi.
+                    Vivamus venenatis ac nisi eu venenatis. Curabitur eget convallis ligula. 
+                    Phasellus tortor sem, pretium at dolor eu, porta fermentum est. Aliquam consectetur massa fermentum, 
+                    varius nulla in, porta mauris. Integer placerat nisl et lacus euismod, eu bibendum libero fringilla. 
+                    Praesent commodo convallis molestie. Proin sit amet tincidunt tellus, vitae semper quam. 
+                    Quisque bibendum diam diam, at consectetur velit ornare eget. Curabitur vel purus ut lectus pulvinar rhoncus. 
+                    Sed non gravida nisi, at consequat quam. Integer ultricies vitae lorem condimentum fermentum.
+
+                </p>
+
+                <a class="btn subscribe" href="{{route('user.create')}}"> Subscribe </a>
+                
+
+            </div>
 
         </div>
-
-        <div class="col-sm-7 col-md-8">
-
-            <h2 class="info_text-title"> Lorem Ipsum</h2>
-
-            <p class="info_text">
-                Vestibulum non urna tincidunt, convallis purus a, vulputate sapien. Sed cursus eros massa, eget auctor purus vehicula sit amet.
-                Nam euismod dui molestie mauris bibendum venenatis. Aenean ipsum nibh, ornare et malesuada vitae, hendrerit sit amet ante.
-                  Quisque id mattis purus. Nunc elementum consectetur euismod. Sed odio nibh, posuere in semper in, egestas ac dui.
-                  Sed id ultricies risus, eget facilisis mauris. Nulla facilisi.
-                Vivamus venenatis ac nisi eu venenatis. Curabitur eget convallis ligula. 
-                Phasellus tortor sem, pretium at dolor eu, porta fermentum est. Aliquam consectetur massa fermentum, 
-                varius nulla in, porta mauris. Integer placerat nisl et lacus euismod, eu bibendum libero fringilla. 
-                Praesent commodo convallis molestie. Proin sit amet tincidunt tellus, vitae semper quam. 
-                Quisque bibendum diam diam, at consectetur velit ornare eget. Curabitur vel purus ut lectus pulvinar rhoncus. 
-                Sed non gravida nisi, at consequat quam. Integer ultricies vitae lorem condimentum fermentum.
-
-            </p>
-
-            <a class="btn subscribe" href="{{route('user.create')}}"> Subscribe </a>
-             
-
-        </div>
-
     </div>
 
 @endsection

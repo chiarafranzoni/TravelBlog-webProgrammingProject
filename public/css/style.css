@@ -169,6 +169,7 @@ table{
     max-width: 75%;
     text-align: center;
     height: auto;
+    box-sizing: border-box;
 }
 
 /* TITOLO TESTO INFO*/
@@ -190,6 +191,8 @@ table{
     font-family: 'Poppins';
     font-size: 18px;
     line-height: 30px;
+    
+    box-sizing: border-box;
 
 }
 

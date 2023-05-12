@@ -3,7 +3,7 @@
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->
 @section('title') 
-    Housing
+    Housings
 @endsection
 
 @section('stile')
@@ -34,7 +34,7 @@ housingsList.css
 
 
     <div class="holder">
-        <h3> Housing </h3>
+        <h3> Housings </h3>
     </div>
 
 

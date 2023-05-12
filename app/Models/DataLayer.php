@@ -65,7 +65,7 @@ class DataLayer
         // Ritorna l'array di utenti con mail corrispondente a mail
 
         $users= myUser::where('email',$email)->get();
-        return $users[0]->name;  //recupero il nome corrispondente all'autente nella prima cella dell'array
+        return $users[0]->firstname;  //recupero il nome corrispondente all'autente nella prima cella dell'array
     }
 
 

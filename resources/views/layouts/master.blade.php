@@ -41,7 +41,7 @@
         <!-- PER CREARE UNA NAVBAR-->
 
       
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,12 +57,12 @@
               
             
               @if($logged)
-                <li class="nav-item dropdown" style="list-style-type: none">
+                <li class="nav-item dropdown dropdown-menu-right" style="list-style-type: none">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Welcome {{$loggedName}}<!--Menù dropdown-->
                   </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('restaurant.index')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{route('user.profile')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
                     <li><a class="dropdown-item" href="{{route('housing.index')}}"><i class='fas fa-globe-americas' style="padding-right: 15px"></i>Your adventure</a></li>
                     <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-power " style="padding-right: 15px"></i>Logout</a></li>
                   </ul>

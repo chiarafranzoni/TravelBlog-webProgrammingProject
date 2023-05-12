@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+/* INIZIO NAVBAR ORIZZONTALE*/
+
+
+
+/* Fine navabar*/
+
+.header {
+
+    display: flex;
+    align-items: center;
+   justify-content: center;
+}
+
+.nav-pills .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    
+    color: aliceblue;
+    text-shadow: 1px 1px  rgb(0, 0, 50);
+   
+    font-size: 20px;
+    border-radius: 0;
+    border-bottom:2px solid rgb(0, 0, 50);;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: rgb(0, 0, 50);
+    text-shadow: none;
+   
+
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: aliceblue;
+    border-color: transparent transparent rgb(0, 0, 50);
+    border-bottom: 2px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* INIZIO FORM*/
+
+.external{      /*Definisco il container esterno per il colore*/
+
+    height: calc(100vh - 56px); /* Sottraggo a tutta l'altezza visibile, l'altezza della navbar, per evitare di*/
+    display: flex;
+    align-items: center; /*posiziono la form al centro*/
+    background-image: url('https://img.freepik.com/free-vector/luxury-old-living-room-interior-with-burning-fireplace-stone-wall_107791-4149.jpg?w=1380&t=st=1683880931~exp=1683881531~hmac=d24c68376312a90bfc780ccb6184ee23e497afb50ace15d3b7fc935046a97456');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3em;
+
+    @media screen and (max-width: 525px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding:1.5em;
+    }
+}
+
+
+.container{     /*Definisco il container interno in cui inserisco il div row*/
+
+    max-width: 70em;
+    width: 100%;
+    background-color: rgba(255, 255,255, 0.8);
+    padding: 0 3em;
+    
+    border-radius: 0.4em;
+
+    @media screen and (max-width: 571px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding: 0 1em;
+    }
+}
+
+
+form{
+    position: relative;
+}
+
+
+label{
+
+    font-family: Oswald;
+    text-transform: uppercase;
+    
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+}
+
+.form-control{
+
+        background: #fff;
+        border:1px solid #001219;
+        border-radius: 1em;
+}
+
+.input-box{         /* Per allineare icona e box */
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.input-box input{       /*Per spaziare le icone dalla form*/
+    
+        width: 100%;
+        padding-left: 3em;
+}
+
+.input-box i{       /*Per spaziare le icone dalla form*/
+    padding-left: 1em;
+    position: absolute;
+}
+
+.input-box .eye{
+
+    padding-left: calc(100% - 3em );
+    position: absolute;
+    display: flex;
+    align-items: center;
+
+}
+
+.holder{
+
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 405px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        display: block;
+        text-align:center;
+    }
+    
+}
+
+.holder p{
+
+    font-family: Oswald;
+    font-size: 1.3em;
+
+    @media screen and (max-width: 571px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 1.1em;
+    }
+    
+   
+
+}
+
+.holder a{
+
+    text-decoration: none;
+    margin-left: 1.2em;
+    color: #005F73;  /* colore del backgroud del bottone*/
+    @media screen and (max-width: 405px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        position: relative;
+         top: -2em;
+    }
+    
+}
+
+.holder a :hover{
+    
+color: cornflowerblue;     
+}
+
+
+
+
+/* Fine form */
+
+
+/*
+
+            BUTTON STYLES
+            
+*/
+
+.buttonHolder{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.loginSubmit{
+
+    --bs-btn-bg:  cornflowerblue;  /* colore del backgroud del bottone*/
+    --bs-btn-hover-bg: #005F73;
+    --bs-btn-color: white;
+    --bs-btn-hover-color: white;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    
+}
+
+
+
+
+
+.login{     /* Stile per pulsante Login*/
+
+    --bs-btn-border-color: black;
+    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-bg: darkgray;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    display: flex !important;
+
+}
