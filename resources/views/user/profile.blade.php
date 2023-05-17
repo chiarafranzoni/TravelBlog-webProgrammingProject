@@ -59,7 +59,7 @@ profile.css
                             <div class="input-box">
                                 <!-- Con for associo la label al campo id dell'input-->
                               <i class="bi bi-person"></i>
-                              <input class='form-control' type="text" id="firstname" name="firstname" placeholder="First Name"> <!--Con placeholder, inserisco un terto provvisorio-->
+                              <input class='form-control' type="text" id="firstname" name="firstname" value="{{ $user->firstname}}"> <!--Con placeholder, inserisco un terto provvisorio-->
                 
                             </div>
                 
@@ -68,7 +68,7 @@ profile.css
                             <label for="lastname"> Last Name</label> 
                             <div class="input-box">
                               <i class="bi bi-person"></i>
-                              <input class='form-control' type="text" id="lastname" name="lastname" placeholder=" Last Name"> 
+                              <input class='form-control' type="text" id="lastname" name="lastname" value=" {{ $user->lastname}}"> 
                             </div>
                 
                             <br>
@@ -76,7 +76,7 @@ profile.css
                             <label for="email"> Email</label> 
                             <div class="input-box">  
                               <i class="bi bi-envelope"></i>
-                              <input class='form-control' type="email" id="email" name="email" placeholder="Email"> 
+                              <input class='form-control' type="email" id="email" name="email" value="{{ $user->email}}"> 
                             </div>
                             
                             <br>
@@ -84,7 +84,7 @@ profile.css
                             <label for="telephone"> Telephone</label>
                             <div class="input-box">   
                               <i class="bi bi-telephone"></i>             
-                              <input class='form-control' type="text" id="telephone" name="telephone" placeholder="Telephone Number"> 
+                              <input class='form-control' type="text" id="telephone" name="telephone" value="{{ $user->telephone}}"> 
                             </div>
                 
                             <br>
@@ -92,7 +92,7 @@ profile.css
                             <label for="password"> Password</label>
                             <div class="input-box ">    
                                 <i class="bi bi-lock"></i>            
-                                <input class='form-control' type="password" id="password" name="password" placeholder="Password"> 
+                                <input class='form-control' type="password" id="password" name="password" value="{{ $user->password}}"> 
                                 <div class="eye">
                                     <i  class="bi bi-eye" onclick="passwordToggle()" id="eye"></i>
                                 </div>
@@ -100,9 +100,7 @@ profile.css
             
 
                             <a href="{{ route('home') }}" class="btn btn-secondary"><i class="bi-box-arrow-left"></i> Back</a>
-                            <label for="login" class="btn btn-primary"><i class="bi-check-lg"></i> Login</label>
-
-                    
+                            <label for="login" class="btn btn-primary"><i class="bi-check-lg"></i> Login</value                 
                         </form>
                     </div>
                     <div class="tab-pane fade" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab" tabindex="0">
@@ -110,41 +108,42 @@ profile.css
                             @csrf
                             <label for="street_and_number"> Street and Number</label> 
                             <div class="address-box">  
-                              <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number"> 
+                              <input class='form-control' type="text" id="street_and_number" name="street_and_number" value="{{ $user->address->street_and_number}}"> 
                             </div>
                 
                             <br>
                 
                             <label for="city"> City</label>
                             <div class="address-box">                
-                              <input class='form-control' type="text" id="city" name="city" placeholder="City"> 
+                              <input class='form-control' type="text" id="city" name="city" value="City"> 
                             </div>
                 
                             <br>
                 
                             <label for="province"> Province</label>
                             <div class="address-box">                
-                              <input class='form-control' type="text" id="province" name="province" placeholder="Province"> 
+                              <input class='form-control' type="text" id="province" name="province" value="Province"> 
                             </div>
                 
                             <br>
                 
                             <label for="country"> Country</label>  
                             <div class="address-box">              
-                              <input class='form-control' type="text" id="country" name="country" placeholder="Country"> 
+                              <input class='form-control' type="text" id="country" name="country" value="Country"> 
                             </div>
                 
                             <br>
                 
                             <label for="postcode"> Postcode</label> 
                             <div class="address-box">               
-                              <input class='form-control' type="text" id="postcode" name="postcode" placeholder="Postcode"> 
+                              <input class='form-control' type="text" id="postcode" name="postcode" value="Postcode"> 
                             </div>
                 
 
                             <a href="{{ route('home') }}" class="btn btn-secondary"><i class="bi-box-arrow-left"></i> Back</a>
                             <label for="Register" class="btn btn-primary"><i class="bi-check-lg"></i> Register</label>
                             <input id="Register" type="submit" value="Register" class="hidden"/>
+
 
                         </form>
                     </div>

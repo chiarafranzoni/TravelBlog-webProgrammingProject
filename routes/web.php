@@ -8,6 +8,21 @@ use App\Http\Controllers\HousingController;
 use App\Http\Controllers\AttractionController;
 
 
+ /**
+ * 
+ *          MIDDLEWARE
+ * 
+ */
+
+
+ Route::middleware(['user'])->group(function(){        /* Così ho limitato alcune azioni agli utenti loggati */
+    
+    Route::get('/housing/add', [HousingController::class, 'add'])->name('housing.add');
+    Route::post('/housing/store', [HousingController::class, 'store'])->name('housing.store');
+    
+ });
+
+
 
 /*
         Nelle route specifico:
@@ -91,3 +106,8 @@ Route::resource('restaurant', RestaurantController::class);
 
  Route::resource('attraction', AttractionController::class);
 
+ 
+
+
+
+    

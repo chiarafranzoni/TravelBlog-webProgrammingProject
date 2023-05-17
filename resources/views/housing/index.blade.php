@@ -38,6 +38,9 @@ housingsList.css
     </div>
 
 
+    <div class="top-external">
+        <button class="btn add"> <a class="dropdown-item" href="{{route('housing.add')}}"> Add an Housing </a></button>
+    </div>
 
         
 

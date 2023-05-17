@@ -90,7 +90,13 @@ class UserController extends Controller
 
         session_start();
 
-        return view('user.profile')->with('logged',true)->with('loggedName', $_SESSION['loggedName']); 
+        
+        $dl = new DataLayer(); // DataLayer gestisce tutte le query del database
+
+        $user=$dl->getUser($_SESSION['email']);
+
+
+        return view('user.profile')->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
     }
 
 }
