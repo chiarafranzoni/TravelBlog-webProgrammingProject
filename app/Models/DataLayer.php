@@ -296,6 +296,55 @@ class DataLayer
 
         return $attractions;
      }
+
+     // Metodo per aggiungere una HOUSING alla table
+    public function addAttraction($name,$category,$price, $description,$link,$stars,$public,$image_name,$user,
+    $street_and_number, $city,$province,$country,$postcode
+        ) {
+
+
+
+        // Aggiungo prima l'indirizzo relativo alla housing
+        $address = new Address;
+
+        $address->street_and_number =$street_and_number;
+        $address->city  =$city ;
+        $address->province =$province ;
+        $address->country =$country ;
+        $address ->postcode =$postcode ;
+
+        $address->save();
+
+        // Poi posso creare la HOUSING, a cui associare l'id di address come chiave esterna
+        $attraction = new Attraction;
+
+        $attraction->name=  $name;
+        $attraction->type = $category;
+        $attraction->address_id=$address->id;
+
+        $attraction->save();
+
+        $generalInfo = new GeneralInfo;
+
+        $generalInfo->myuser_id = $user->id ;
+        $generalInfo->price=  $price;
+        $generalInfo->category="ATTRACTION";
+        $generalInfo->description=  $description;
+        $generalInfo->link = $link;
+        $generalInfo->place_image= asset("storage/images/$image_name");
+        $generalInfo->stars=  $stars;
+
+        if ($public) {
+        $generalInfo->public = 1;
+        }else{
+        $generalInfo->public = 0;
+        }
+
+        $generalInfo->ref_id=$attraction->id;
+
+        $generalInfo->save();
+
+        }
 }
 
 

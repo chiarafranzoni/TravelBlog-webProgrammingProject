@@ -17,8 +17,13 @@ use App\Http\Controllers\AttractionController;
 
  Route::middleware(['user'])->group(function(){        /* Così ho limitato alcune azioni agli utenti loggati */
     
+    /* HOUSING */
     Route::get('/housing/add', [HousingController::class, 'add'])->name('housing.add');
     Route::post('/housing/store', [HousingController::class, 'store'])->name('housing.store');
+
+    /* ATTRACTION */
+    Route::get('/attraction/add', [ AttractionController::class, 'add'])->name('attraction.add');
+    Route::post('/attraction/store', [  AttractionController::class, 'store'])->name('attraction.store');
     
  });
 

@@ -38,6 +38,10 @@ attractionsList.css
     </div>
 
 
+    
+    <div class="top-external">
+        <button class="btn add"> <a class="dropdown-item" href="{{route('attraction.add')}}"> Add an Attraction </a></button>
+    </div>
 
         
 
