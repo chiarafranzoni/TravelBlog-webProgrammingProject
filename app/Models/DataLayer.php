@@ -76,6 +76,90 @@ class DataLayer
         return $users[0];  //recupero il nome corrispondente all'autente nella prima cella dell'array
     }
 
+    public function getUserHousing($email){
+
+        // Ritorna l'array di utenti con mail corrispondente a mail
+
+        $users= myUser::where('email',$email)->get();
+
+        $housingInfo_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                    ->where([
+                        ["myuser_id", "=", $users[0]->id]
+                    ])
+                    ->where([
+                        ["category", "=", "HOUSING"]
+                    ])
+                    ->get();
+
+
+        $housings=[];
+
+        foreach ($housingInfo_array as $info)  {            /* Per ciascun indice, verifico a quale housing corrisponde l'id*/
+
+            
+            $housing = Housing::select("*")
+                    ->where([
+                        ["id", "=", $info->ref_id]
+                    ])
+                    ->get();
+
+            if($housing && count($housing)){    // se housing esiste lo pusho 
+                
+                
+                $housing[0]-> info= $info;      // Assegno la chiave info il valore $info
+               
+                array_push($housings,$housing[0]);  // Pusho nell'array sia l'housing che le sue info relative
+            
+            }
+
+        }   
+
+        return $housings;
+    
+    }
+
+    public function getUserAttraction($email){
+
+        // Ritorna l'array di utenti con mail corrispondente a mail
+
+        $users= myUser::where('email',$email)->get();
+        
+        $attractionInfo_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                    ->where([
+                        ["myuser_id", "=", $users[0]->id]
+                    ])
+                    ->where([
+                        ["category", "=", "ATTRACTION"]
+                    ])
+                    ->get();
+
+
+        $attractions=[];
+
+        foreach ($attractionInfo_array as $info)  {            /* Per ciascun indice, verifico a quale housing corrisponde l'id*/
+
+            
+            $attraction = Attraction::select("*")
+                    ->where([
+                        ["id", "=", $info->ref_id]
+                    ])
+                    ->get();
+
+            if($attraction && count($attraction)){    // se housing esiste lo pusho 
+                
+                
+                $attraction[0]-> info= $info;      // Assegno la chiave info il valore $info
+               
+                array_push($attractions,$attraction[0]);  // Pusho nell'array sia l'housing che le sue info relative
+            
+            }
+
+        }   
+
+        return $attractions;
+    
+    }
+
 
 
 

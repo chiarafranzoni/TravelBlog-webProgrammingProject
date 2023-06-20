@@ -63,7 +63,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{route('user.profile')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="{{route('housing.index')}}"><i class='fas fa-globe-americas' style="padding-right: 15px"></i>Your adventure</a></li>
+                    <li><a class="dropdown-item" href="{{route('user.adventures')}}"><i class="bi bi-globe-europe-africa" style="padding-right: 15px"></i>Your adventure</a></li>
                     <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-power " style="padding-right: 15px"></i>Logout</a></li>
                   </ul>
                 </li>

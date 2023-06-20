@@ -46,7 +46,6 @@ class UserController extends Controller
 
     public function logout(){
 
-        session_start();        /* SERVE INIZIARE LA SESSIONE PER POI DISTRUGGERLA ! */
         session_destroy();
 
         return Redirect::to(route('home')); 
@@ -87,9 +86,6 @@ class UserController extends Controller
     // Qui sotto TUTTO ha per forza LOGGED=true e loggedName= $_SESSION['loggedName'], perchè quando sono qui sono già loggato!
     
     public function profile(){
-
-        session_start();
-
         
         $dl = new DataLayer(); // DataLayer gestisce tutte le query del database
 
@@ -97,6 +93,22 @@ class UserController extends Controller
 
 
         return view('user.profile')->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
+    }
+
+    public function adventures(){
+        
+        $dl = new DataLayer(); // DataLayer gestisce tutte le query del database
+
+        $user=$dl->getUser($_SESSION['email']);
+
+        $housings=array(); // Creo un array, in cui salverò gli alloggi
+        $housings=$dl->getUserHousing($_SESSION['email']);
+
+        $attractions=array(); 
+        $attractions=$dl->getUserAttraction($_SESSION['email']);
+
+
+        return view('user.adventures')->with('housings_list', $housings)->with('attractions_list', $attractions)->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
     }
 
 }

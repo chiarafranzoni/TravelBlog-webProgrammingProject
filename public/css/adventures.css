@@ -1,0 +1,141 @@
+
+.holder{
+    
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 5em;
+
+}
+
+.holder h3{
+
+text-align: center;
+margin-bottom: 1em;
+font-family: 'Lucida Handwriting';
+font-size: 65px;
+line-height: 50px;
+font-weight: 900;
+letter-spacing: 0px;
+
+color:black ;
+
+@media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+    font-size: 55px;
+}
+@media screen and (max-width: 450px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+    font-size: 45px;
+}
+
+}
+
+
+
+.top-external{      /* Per avere gli alementi uno in parte all'altro*/
+
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 2em;
+    font-size: large;
+    margin: 3em 5em 3em 5em;
+    
+    
+    
+    @media screen and (max-width: 1100px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 2em 3em 2em;
+    }
+    
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.5em 3em 0.5em;
+    }
+    
+    @media screen and (max-width: 600px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.3em 3em 0.3em;
+    }
+    
+    }
+
+
+
+.container{
+
+    margin-top: 6em;
+    
+}
+
+.housing_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color:rgb(45, 177, 177) ;
+    text-shadow: 2px 2px darkblue;
+}
+
+.attraction_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color:yellowgreen;
+    text-shadow: 2px 2px darkgreen;
+}
+
+.noElement{
+    font-size: large;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  
+    .card {
+      flex: 0 0 auto;
+    }
+  }
+
+  .card {
+    display: inline-block;
+    min-height: 300px;
+
+    max-width: 700px;
+
+    @media screen and (max-width: 768px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+       max-width: 500px;
+    }
+
+    @media screen and (max-width: 576px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+        max-width: 400px;
+     }
+
+     @media screen and (max-width: 445px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+        max-width: 300px;
+     }
+    
+    
+    }
+  
+
+  
+
+

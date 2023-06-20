@@ -25,6 +25,13 @@ use App\Http\Controllers\AttractionController;
     Route::get('/attraction/add', [ AttractionController::class, 'add'])->name('attraction.add');
     Route::post('/attraction/store', [  AttractionController::class, 'store'])->name('attraction.store');
     
+
+    /* USER */
+    Route::get('/user/logout',[UserController::class, 'logout'])->name('user.logout');
+    Route::get('/user/profile',[UserController::class, 'profile'])->name('user.profile');
+    Route::get('/user/adventures',[UserController::class, 'adventures'])->name('user.adventures');
+
+
  });
 
 
@@ -75,10 +82,6 @@ Route::post('/user/login',[UserController::class, 'authentication'])->name('user
 
 Route::get('/user/create',[UserController::class,'create'])-> name('user.create');
 Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
-Route::get('/user/logout',[UserController::class, 'logout'])->name('user.logout');
-
-Route::get('/user/profile',[UserController::class, 'profile'])->name('user.profile');
-
 
 
 
