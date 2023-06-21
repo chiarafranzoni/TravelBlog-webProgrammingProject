@@ -337,7 +337,76 @@ class DataLayer
 
     }
 
+    public function getHousingFromId($id){
 
+
+        $housing = Housing::select("*")
+                ->where([
+                    ["id", "=", $id]
+                ])
+                ->get();
+
+    
+
+        return $housing;
+    }
+
+    public function getInfoFromHousingId($id){
+
+        $Info_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                    ->where([
+                        ["category", "=", "HOUSING"]
+                    ])
+                    ->where([
+                        ["ref_id", "=", $id]
+                    ])
+                    ->get();
+
+        $users=[];
+
+
+        for ($i=0; $i < count($Info_array); $i++) { 
+
+            $users = myUser::select("*")
+                    ->where([
+                        ["id", "=", $Info_array[$i]->myuser_id]
+                    ])
+                    ->get();
+
+            if($users && count($users)){    // se housing esiste lo pusho 
+                
+                
+                $Info_array[$i]->user= $users[0];     // Assegno la chiave info il valore $info
+                
+                console_log($Info_array[$i]->user);
+
+            }
+        }
+
+
+        return $Info_array;
+    }
+
+    public function getAddressFromId($id){
+
+        $address = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+        
+        ->where([
+            ["id", "=", $id]
+        ])
+        ->get();
+
+
+        return $address[0];
+    }
+
+    public function getUserFromInfos($array){
+
+        for ($i=0; $i < conut($array) ; $i++) { 
+            
+        }
+
+    }
 
     /**
      *      METODI PER ATTRACTION

@@ -72,5 +72,29 @@ class HousingController extends Controller
          return Redirect::to(route('housing.index')); // Importa la classe Redirect!!
      }
 
+     public function more($id){ // Chiamo la rotta passando l'id della housing che voglio visualizzare
+
+        session_start();
+
+        $dl=new DataLayer(); // Creo un oggetto di tipo datalayer per poterne usare i metodi
+
+        $housing=$dl->getHousingFromId($id);  // Mi faccio tornare la housing assoiciata all'id
+
+        $infos=$dl->getInfoFromHousingId($housing[0]->id);
+
+        $address=$dl->getAddressFromId($housing[0]->address_id);
+
+        if(!isset($_SESSION['logged'])){
+
+            return view('housing.more')->with('housing', $housing[0])->with('infos', $infos)->with('address', $address)->with('logged',false);
+    
+           }
+           else{
+    
+            return view('housing.more')->with('housing', $housing[0])->with('infos', $infos)->with('address', $address)->with('logged',true)->with('loggedName', $_SESSION['loggedName']); /* il metodo permette di eseguire index in view*/
+    
+           }
+
+     }
 
 }

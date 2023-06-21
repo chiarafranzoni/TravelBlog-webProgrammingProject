@@ -100,7 +100,7 @@ profile.css
             
 
                             <a href="{{ route('home') }}" class="btn btn-secondary"><i class="bi-box-arrow-left"></i> Back</a>
-                            <label for="login" class="btn btn-primary"><i class="bi-check-lg"></i> Login</value                 
+                            <label for="login" class="btn btn-primary"><i class="bi-check-lg"></i> Login</label>               
                         </form>
                     </div>
                     <div class="tab-pane fade" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab" tabindex="0">

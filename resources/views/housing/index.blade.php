@@ -39,7 +39,7 @@ housingsList.css
 
 
     <div class="top-external">
-        <button class="btn add"> <a class="dropdown-item" href="{{route('housing.add')}}"> Add an Housing </a></button>
+        <button class="btn btn-add" > <a class="dropdown-item" href="{{route('housing.add')}}"> Add an Housing </a></button>
     </div>
 
         
@@ -82,7 +82,7 @@ housingsList.css
                                                 <small class="text-muted">See More !</small>
                                             </p>
                                             <div class='w-100'>
-                                                <a href="" class="btn btn-secondary more">
+                                                <a href="{{route('housing.more', ['id' => $housing->id])}}" class="btn btn-secondary more">
                                                     See More!
                                                 </a>
                                             </div>
