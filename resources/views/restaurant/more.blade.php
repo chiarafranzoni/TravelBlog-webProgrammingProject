@@ -3,7 +3,7 @@
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->
 @section('title') 
-   {{$housing->name}}
+   {{$restaurant->name}}
 @endsection
 
 @section('stile')
@@ -31,11 +31,10 @@ more.css
 
 @section('corpo')
 
-
 <div class="holder">
     <h3 style="
-    color:rgb(45, 177, 177) ;
-    text-shadow: 2px 2px darkblue;"> {{$housing->name}} </h3>
+    color: crimson;
+    text-shadow: 2px 2px maroon;"> {{$restaurant->name}} </h3>
 </div>
 
 <div class="gallery" >
@@ -46,7 +45,7 @@ more.css
 
         <div class="info d-block">
 
-            <h6 ><i class="bi bi-house-heart"></i> {{$housing->type}} </h6>
+            <h6 ><i class="bi bi-shop"></i> {{$restaurant->type}} </h6>
             
             <h6 ><i class="bi bi-geo-alt-fill"></i> {{$address->street_and_number}},{{$address->postcode}},{{$address->city}} ({{$address->province}}),{{$address->country}} </h6>
             
@@ -89,7 +88,7 @@ more.css
             
         @else
       
-            <div id="carouselExample" class="carousel slide">
+            <div id="carouselExample" class="carousel slide comment-slide">
                 <div class="carousel-inner carousel-comment">
                     <div class="carousel-item active">
                         <h5>From {{$infos[0]->user->firstname}} : </h5>
@@ -108,22 +107,22 @@ more.css
                         
                     </div>
 
-                @for ($i = 1; $i <count($infos); $i++)
-                
-                <div class="carousel-item">
-                    <h5>From {{$infos[$i]->user->firstname}} : </h5>
-                    @for ($j = 0; $j < 5 ; $j++)
-                        @if ($j < value($infos[$i]->stars))
-        
-                             <i class="bi bi-star-fill"></i>
-                        @else
-                            <i class="bi bi-star"></i>
-                            
-                        @endif
-                    @endfor
-                    <p style="margin-top: 0.5em;"> {{$infos[$i]->description}} </p>
+                    @for ($i = 1; $i <count($infos); $i++)
+                    
+                    <div class="carousel-item">
+                        <h5>From {{$infos[$i]->user->firstname}} : </h5>
+                        @for ($j = 0; $j < 5 ; $j++)
+                            @if ($j < value($infos[$i]->stars))
+            
+                                <i class="bi bi-star-fill"></i>
+                            @else
+                                <i class="bi bi-star"></i>
+                                
+                            @endif
+                        @endfor
+                        <p style="margin-top: 0.5em;"> {{$infos[$i]->description}} </p>
 
-                        <h5>{{$i+1}} / {{count($infos)}} </h5>
+                            <h5>{{$i+1}} / {{count($infos)}} </h5>
                     
                 </div>
                 @endfor
@@ -148,6 +147,7 @@ more.css
 
 <!-- GALLERIA IMMAGINI-->
 
+
 <div class="gallery">
 
     <div class="image">
@@ -161,36 +161,38 @@ more.css
               
             
         @else
-      
-            <div id="carouselImage" class="carousel slide">
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src=" {{$infos[0]->place_image}}" class="d-block " >
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5> 1 / {{count($infos)}} </h5>
-                    </div>
-                </div>
 
-                @for ($i = 1; $i < count($infos); $i++)
-                <div class="carousel-item">
-                    <img src=" {{$infos[$i]->place_image}}" class="d-block " >
-                    <div class="carousel-caption d-none d-md-block" >
-                        <h5>{{$i+1}} / {{count($infos)}} </h5>
-                    </div>
+    
+      
+        <div id="carouselImage" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src=" {{$infos[0]->place_image}}" class="d-block " >
+                <div class="carousel-caption d-none d-md-block">
+                    <h5> 1 / {{count($infos)}} </h5>
                 </div>
-                @endfor
-                
-                
+              </div>
+
+              @for ($i = 1; $i < count($infos); $i++)
+              <div class="carousel-item">
+                <img src=" {{$infos[$i]->place_image}}" class="d-block " >
+                <div class="carousel-caption d-none d-md-block" >
+                    <h5>{{$i+1}} / {{count($infos)}} </h5>
                 </div>
-                <button class="carousel-control-prev " type="button" data-bs-target="#carouselImage" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next " type="button" data-bs-target="#carouselImage" data-bs-slide="next">
-                <span class="carousel-control-next-icon " aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
+              </div>
+              @endfor
+             
+              
             </div>
+            <button class="carousel-control-prev " type="button" data-bs-target="#carouselImage" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next " type="button" data-bs-target="#carouselImage" data-bs-slide="next">
+              <span class="carousel-control-next-icon " aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
 
         @endif
 

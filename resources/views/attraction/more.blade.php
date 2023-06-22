@@ -71,7 +71,7 @@ more.css
 
         @if (count($infos)== 1)
 
-        <div class="carousel-inner"> 
+        <div class="carousel-inner carousel-comment"> 
 
             <h5>From {{$infos[0]->user->firstname}} : </h5>
             @for ($i = 0; $i < 5 ; $i++)
@@ -89,7 +89,7 @@ more.css
         @else
       
             <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
+                <div class="carousel-inner carousel-comment">
                     <div class="carousel-item active">
                         <h5>From {{$infos[0]->user->firstname}} : </h5>
                         @for ($i = 0; $i < 5 ; $i++)
@@ -160,36 +160,36 @@ more.css
               
             
         @else
-      
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src=" {{$infos[0]->place_image}}" class="d-block w-100" >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5> 1 / {{count($infos)}} </h5>
-                </div>
-              </div>
 
-              @for ($i = 1; $i < count($infos); $i++)
-              <div class="carousel-item">
-                <img src=" {{$infos[$i]->place_image}}" class="d-block w-100" >
-                <div class="carousel-caption d-none d-md-block" >
-                    <h5>{{$i+1}} / {{count($infos)}} </h5>
+            <div id="carouselImage" class="carousel slide">
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src=" {{$infos[0]->place_image}}" class="d-block " >
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5> 1 / {{count($infos)}} </h5>
+                    </div>
                 </div>
-              </div>
-              @endfor
-             
-              
+
+                @for ($i = 1; $i < count($infos); $i++)
+                <div class="carousel-item">
+                    <img src=" {{$infos[$i]->place_image}}" class="d-block " >
+                    <div class="carousel-caption d-none d-md-block" >
+                        <h5>{{$i+1}} / {{count($infos)}} </h5>
+                    </div>
+                </div>
+                @endfor
+                
+                
+                </div>
+                <button class="carousel-control-prev " type="button" data-bs-target="#carouselImage" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next " type="button" data-bs-target="#carouselImage" data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-        </div>
 
         @endif
 

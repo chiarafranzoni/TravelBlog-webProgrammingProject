@@ -24,6 +24,10 @@ use App\Http\Controllers\AttractionController;
     /* ATTRACTION */
     Route::get('/attraction/add', [ AttractionController::class, 'add'])->name('attraction.add');
     Route::post('/attraction/store', [  AttractionController::class, 'store'])->name('attraction.store');
+
+    /* RESTAURANT */
+    Route::get('/restaurant/add', [ RestaurantController::class, 'add'])->name('restaurant.add');
+    Route::post('/restaurant/store', [  RestaurantController::class, 'store'])->name('restaurant.store');
     
 
     /* USER */
@@ -102,6 +106,16 @@ Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
 
 
  Route::get('/attraction/{id}/more', [AttractionController::class, 'more'])->name('attraction.more');
+
+ 
+ /**
+ * 
+ *          RESTAURANT
+ * 
+ */
+
+
+ Route::get('/restaurant/{id}/more', [RestaurantController::class, 'more'])->name('restaurant.more');
 
 
 

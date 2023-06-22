@@ -178,6 +178,141 @@ class DataLayer
         return Restaurant::orderBy('name','asc')->get();
     }
 
+    public function publicRestaurantFromInfo(){            /* Mi faccio tornare le attrazioni dalle info */
+
+        $restaurantInfo_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti le ATTRACTION e che sono pubbliche*/
+                    ->where([
+                        ["category", "=", "RESTAURANT"]
+                    ])
+                    ->where([
+                        ["public", "=", 1]
+                    ])
+                    ->get();
+
+
+        $restaurants=[];
+
+        foreach ($restaurantInfo_array as $info)  { /* Per ciascun indice, verifico a quale ATTRACTION corrisponde al ref_id delle info*/
+
+            
+            $restaurant = Restaurant::select("*")
+                    ->where([
+                        ["id", "=", $info->ref_id]
+                    ])
+                    ->get();
+
+            if($restaurant && count($restaurant)){    // se attraction esiste lo pusho 
+                
+                
+                $restaurant[0]-> info= $info;      // Assegno la chiave info il valore $info
+               
+                array_push($restaurants,$restaurant[0]);  // Pusho nell'array sia l'attraction che le sue info relative
+            
+            }
+
+        }   
+
+        return $restaurants;
+     }
+
+     // Metodo per aggiungere una RESTAURANT alla table
+    public function addRestaurant($name,$category,$price, $description,$link,$stars,$public,$image_name,$user,
+    $street_and_number, $city,$province,$country,$postcode
+        ) {
+
+
+
+        // Aggiungo prima l'indirizzo relativo alla housing
+        $address = new Address;
+
+        $address->street_and_number =$street_and_number;
+        $address->city  =$city ;
+        $address->province =$province ;
+        $address->country =$country ;
+        $address ->postcode =$postcode ;
+
+        $address->save();
+
+        // Poi posso creare la HOUSING, a cui associare l'id di address come chiave esterna
+        $restaurant = new Restaurant;
+
+        $restaurant->name=  $name;
+        $restaurant->type = $category;
+        $restaurant->address_id=$address->id;
+
+        $restaurant->save();
+
+        $generalInfo = new GeneralInfo;
+
+        $generalInfo->myuser_id = $user->id ;
+        $generalInfo->price=  $price;
+        $generalInfo->category="RESTAURANT";
+        $generalInfo->description=  $description;
+        $generalInfo->link = $link;
+        $generalInfo->place_image= asset("storage/images/$image_name");
+        $generalInfo->stars=  $stars;
+
+        if ($public) {
+        $generalInfo->public = 1;
+        }else{
+        $generalInfo->public = 0;
+        }
+
+        $generalInfo->ref_id=$restaurant->id;
+
+        $generalInfo->save();
+
+    }
+
+    public function getRestaurantFromId($id){
+
+
+        $restaurant = Restaurant::select("*")
+                ->where([
+                    ["id", "=", $id]
+                ])
+                ->get();
+
+    
+
+        return $restaurant;
+    }
+
+    public function getInfoFromRestaurantId($id){
+
+        $Info_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                    ->where([
+                        ["category", "=", "RESTAURANT"]
+                    ])
+                    ->where([
+                        ["ref_id", "=", $id]
+                    ])
+                    ->get();
+
+        $users=[];
+
+
+        for ($i=0; $i < count($Info_array); $i++) { 
+
+            $users = myUser::select("*")
+                    ->where([
+                        ["id", "=", $Info_array[$i]->myuser_id]
+                    ])
+                    ->get();
+
+            if($users && count($users)){    // se housing esiste lo pusho 
+                
+                
+                $Info_array[$i]->user= $users[0];     // Assegno la chiave info il valore $info
+            
+
+            }
+        }
+
+
+        return $Info_array;
+    }
+
 
 
     /**
@@ -491,56 +626,56 @@ class DataLayer
 
         $generalInfo->save();
 
-        }
+    }
 
-        public function getAttractionFromId($id){
+    public function getAttractionFromId($id){
 
 
-            $attraction = Attraction::select("*")
+        $attraction = Attraction::select("*")
+                ->where([
+                    ["id", "=", $id]
+                ])
+                ->get();
+
+    
+
+        return $attraction;
+    }
+
+    public function getInfoFromAttractionId($id){
+
+        $Info_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
                     ->where([
-                        ["id", "=", $id]
+                        ["category", "=", "ATTRACTION"]
+                    ])
+                    ->where([
+                        ["ref_id", "=", $id]
                     ])
                     ->get();
-    
-        
-    
-            return $attraction;
-        }
-    
-        public function getInfoFromAttractionId($id){
-    
-            $Info_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
-                        ->where([
-                            ["category", "=", "ATTRACTION"]
-                        ])
-                        ->where([
-                            ["ref_id", "=", $id]
-                        ])
-                        ->get();
-    
-            $users=[];
-    
-    
-            for ($i=0; $i < count($Info_array); $i++) { 
-    
-                $users = myUser::select("*")
-                        ->where([
-                            ["id", "=", $Info_array[$i]->myuser_id]
-                        ])
-                        ->get();
-    
-                if($users && count($users)){    // se housing esiste lo pusho 
-                    
-                    
-                    $Info_array[$i]->user= $users[0];     // Assegno la chiave info il valore $info
+
+        $users=[];
+
+
+        for ($i=0; $i < count($Info_array); $i++) { 
+
+            $users = myUser::select("*")
+                    ->where([
+                        ["id", "=", $Info_array[$i]->myuser_id]
+                    ])
+                    ->get();
+
+            if($users && count($users)){    // se housing esiste lo pusho 
                 
-    
-                }
+                
+                $Info_array[$i]->user= $users[0];     // Assegno la chiave info il valore $info
+            
+
             }
-    
-    
-            return $Info_array;
         }
+
+
+        return $Info_array;
+    }
 }
 
 
