@@ -91,7 +91,17 @@ Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
  */
 
 
+ Route::get('/housing/{id}/more', [HousingController::class, 'more'])->name('housing.more');
 
+
+ /**
+ * 
+ *          ATTRACTION
+ * 
+ */
+
+
+ Route::get('/attraction/{id}/more', [AttractionController::class, 'more'])->name('attraction.more');
 
 
 
@@ -104,7 +114,6 @@ Route::post('/user/store',[UserController::class, 'store'])->name('user.store');
 
 Route::resource('restaurant', RestaurantController::class);
 
-Route::get('/housing/{id}/more', [HousingController::class, 'more'])->name('housing.more');
 
 
 

@@ -83,7 +83,7 @@ attractionsList.css
                                                 <small class="text-muted">See More !</small>
                                             </p>
                                             <div class='w-100'>
-                                                <a href="" class="btn btn-secondary more">
+                                                <a href="{{route('attraction.more', ['id' => $attraction->id])}}" class="btn btn-secondary more">
                                                     See More!
                                                 </a>
                                             </div>

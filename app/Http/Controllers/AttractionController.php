@@ -74,4 +74,28 @@ class AttractionController extends Controller
          return Redirect::to(route('attraction.index')); // Importa la classe Redirect!!
      }
 
+     public function more($id){ // Chiamo la rotta passando l'id della attraction che voglio visualizzare
+
+      session_start();
+
+      $dl=new DataLayer(); // Creo un oggetto di tipo datalayer per poterne usare i metodi
+
+      $attraction=$dl->getAttractionFromId($id);  // Mi faccio tornare la attraction assoiciata all'id
+
+      $infos=$dl->getInfoFromAttractionId($attraction[0]->id);
+
+      $address=$dl->getAddressFromId($attraction[0]->address_id);
+
+      if(!isset($_SESSION['logged'])){
+
+          return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('address', $address)->with('logged',false);
+  
+         }
+         else{
+  
+          return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('address', $address)->with('logged',true)->with('loggedName', $_SESSION['loggedName']); /* il metodo permette di eseguire index in view*/
+  
+         }
+
+   }
 }

@@ -400,13 +400,7 @@ class DataLayer
         return $address[0];
     }
 
-    public function getUserFromInfos($array){
 
-        for ($i=0; $i < conut($array) ; $i++) { 
-            
-        }
-
-    }
 
     /**
      *      METODI PER ATTRACTION
@@ -497,6 +491,55 @@ class DataLayer
 
         $generalInfo->save();
 
+        }
+
+        public function getAttractionFromId($id){
+
+
+            $attraction = Attraction::select("*")
+                    ->where([
+                        ["id", "=", $id]
+                    ])
+                    ->get();
+    
+        
+    
+            return $attraction;
+        }
+    
+        public function getInfoFromAttractionId($id){
+    
+            $Info_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                        ->where([
+                            ["category", "=", "ATTRACTION"]
+                        ])
+                        ->where([
+                            ["ref_id", "=", $id]
+                        ])
+                        ->get();
+    
+            $users=[];
+    
+    
+            for ($i=0; $i < count($Info_array); $i++) { 
+    
+                $users = myUser::select("*")
+                        ->where([
+                            ["id", "=", $Info_array[$i]->myuser_id]
+                        ])
+                        ->get();
+    
+                if($users && count($users)){    // se housing esiste lo pusho 
+                    
+                    
+                    $Info_array[$i]->user= $users[0];     // Assegno la chiave info il valore $info
+                
+    
+                }
+            }
+    
+    
+            return $Info_array;
         }
 }
 
