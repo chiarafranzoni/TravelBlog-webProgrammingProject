@@ -7,7 +7,7 @@
 @endsection
 
 @section('stile')
-restaurantsList.css
+elementsList.css
 @endsection
 
 @section('left-navbar')
@@ -33,11 +33,13 @@ restaurantsList.css
  
 
 
-    <div class="holder">
+    <div class="holder" style="
+    color: crimson;
+    text-shadow: 2px 2px maroon;">
         <h3> Restaurants</h3>
     </div>
 
-    <div class="top-external">
+    <div class="top-external" style="border: 1px solid maroon  ;">
         <button class="btn btn-add" > <a class="dropdown-item" href="{{route('restaurant.add')}}"> Add a Restaurant </a></button>
     </div>
 
@@ -49,7 +51,9 @@ restaurantsList.css
             @foreach ($restaurants_list as $restaurant) <!--Per ciascun ristornate della lista-->
 
                             
-                <div class="external">
+                <div class="external" style="
+                background-color: lightgoldenrodyellow;
+                box-shadow: 1px 1px rgb(220,20,60);">
 
                     <div class="continer ">
                         

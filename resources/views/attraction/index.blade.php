@@ -7,7 +7,7 @@
 @endsection
 
 @section('stile')
-attractionsList.css
+elementsList.css
 @endsection
 
 @section('left-navbar')
@@ -33,14 +33,22 @@ attractionsList.css
  
 
 
-    <div class="holder">
+    <div class="holder" style="
+    color:yellowgreen;
+    text-shadow: 2px 2px darkgreen;">
         <h3> Attractions </h3>
     </div>
 
 
     
-    <div class="top-external">
-        <button class="btn add"> <a class="dropdown-item" href="{{route('attraction.add')}}"> Add an Attraction </a></button>
+    <div class="top-external" style=" border: 1px solid darkgreen  ;">
+        <button class="btn add" style="
+        background-color: whitesmoke;
+        box-shadow: 1px 1px darkgreen;"> <a class="dropdown-item" href="{{route('attraction.add')}}"> Add an Attraction </a></button>
+
+       
+        <input class="form-control" id="search" type="text" placeholder="Search..">
+
     </div>
 
         
@@ -50,7 +58,9 @@ attractionsList.css
             @foreach ($attractions_list as $attraction) <!--Per ciascun ristornate della lista-->
 
                             
-                <div class="external">
+                <div class="external" style="
+                background-color: whitesmoke;
+                box-shadow: 1px 1px darkgreen;">
 
                     <div class="continer ">
                         
@@ -61,7 +71,7 @@ attractionsList.css
                                         <img src="{{$attraction->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
                                     </div>
 
-                                    <div class="col-xs-5  col-md-6 col-lg-7">
+                                    <div class="card-wrapper col-xs-5  col-md-6 col-lg-7">
                                         <div class="card-body">
                                             <h5 class="card-title" style="font-family: 'Poor Richard'; font-size: 40px;"> 
                                                 {{$attraction->name}} 
@@ -96,11 +106,40 @@ attractionsList.css
                 </div>
                             
                             
-
             @endforeach
 
+            <span class="hidden" style="display: none"> OPS... it seems that what you are looking for doesn't exist ! </span>
+
  
- 
+ <script>
+     $(document).ready(function () {
+
+
+            $("#search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".external").filter(function () {
+
+                        $(this).toggle($(this).find($(".card-title")).text().toLowerCase().indexOf(value) > -1)
+                        
+
+                });
+
+                
+                var dim = $('.external').is(":visible");
+
+                if (dim == false) {
+                    $(".hidden").show();
+                } else {
+                    $(".hidden").hide();   
+                }
+
+                
+
+
+            });
+     });
+
+ </script>
     
 @endsection
 

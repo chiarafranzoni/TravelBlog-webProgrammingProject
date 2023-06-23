@@ -68,22 +68,36 @@ letter-spacing: 0px;
     justify-content: center;
 }
 
+.image-gallery{
+
+    margin-top: 3em;
+    margin-bottom: 5em;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 100% !important;
+        display: inline;
+        
+    }
+
+}
+
 
 .image{
 
     text-align: center;
 
-    max-width: 700px;
 }
 
-img{
-     margin-top: 1em;
-}
 
 
 
 img{
 
+    
+    margin-top: 1em;
     width: 700px;
 
     @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
@@ -142,7 +156,7 @@ img{
   word-wrap: break-word;
 }
 
-.gallery a:hover{  
+.link:hover{  
     color: darkslategrey;
   }
 
@@ -153,4 +167,11 @@ img{
 .comment-slide .carousel-control-next, .comment-slide .carousel-control-prev {
     top: 1em;
     bottom: auto;
+}
+
+.carousel-caption{
+    
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 0px;
 }

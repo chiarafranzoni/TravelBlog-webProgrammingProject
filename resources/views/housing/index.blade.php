@@ -7,7 +7,7 @@
 @endsection
 
 @section('stile')
-housingsList.css
+elementsList.css
 @endsection
 
 @section('left-navbar')
@@ -33,12 +33,14 @@ housingsList.css
  
 
 
-    <div class="holder">
+    <div class="holder" style="
+    color:rgb(45, 177, 177) ;
+    text-shadow: 2px 2px darkblue;">
         <h3> Housings </h3>
     </div>
 
 
-    <div class="top-external">
+    <div class="top-external" style="border: 1px solid darkblue  ;">
         <button class="btn btn-add" > <a class="dropdown-item" href="{{route('housing.add')}}"> Add an Housing </a></button>
     </div>
 
@@ -49,7 +51,9 @@ housingsList.css
             @foreach ($housings_list as $housing) <!--Per ciascun ristornate della lista-->
 
                             
-                <div class="external">
+                <div class="external" style="
+                background-color: rgb(255, 235, 205);
+                box-shadow: 1px 1px darkblue;">
 
                     <div class="continer ">
                         

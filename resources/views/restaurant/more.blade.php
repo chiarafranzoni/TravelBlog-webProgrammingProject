@@ -52,7 +52,7 @@ more.css
 
             @for ($i = 0; $i < count($infos); $i++)
 
-                <a  href="{{$infos[$i]->link}}"><h6 ><i class="bi bi-link"></i> {{$infos[$i]->link}} </h6></a>
+                <a  href="{{$infos[$i]->link}}"><h6 class="link"><i class="bi bi-link"></i> {{$infos[$i]->link}} </h6></a>
                 
             @endfor
         </div>
@@ -148,7 +148,7 @@ more.css
 <!-- GALLERIA IMMAGINI-->
 
 
-<div class="gallery">
+<div class="image-gallery">
 
     <div class="image">
 
@@ -157,7 +157,7 @@ more.css
 
         @if (count($infos)==1)
 
-        <img  src=" {{$infos[0]->place_image}}" class="d-block w-100" >
+        <img  src=" {{$infos[0]->place_image}}" class="d-block" >
               
             
         @else
@@ -168,7 +168,7 @@ more.css
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src=" {{$infos[0]->place_image}}" class="d-block " >
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption  d-md-block">
                     <h5> 1 / {{count($infos)}} </h5>
                 </div>
               </div>
@@ -176,7 +176,7 @@ more.css
               @for ($i = 1; $i < count($infos); $i++)
               <div class="carousel-item">
                 <img src=" {{$infos[$i]->place_image}}" class="d-block " >
-                <div class="carousel-caption d-none d-md-block" >
+                <div class="carousel-caption d-md-block" >
                     <h5>{{$i+1}} / {{count($infos)}} </h5>
                 </div>
               </div>
