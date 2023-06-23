@@ -27,6 +27,7 @@
     margin-bottom: 2em;
     border-radius: 3px;
     margin: 3em 5em 3em 5em;
+
     
     
     
@@ -46,6 +47,69 @@
     }
     
 }
+
+.info-container{
+    text-align: center;
+    margin-bottom: 2em;
+    
+
+}
+
+.search-container{
+
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        display: block;
+        padding: 0px;
+        text-align: center; 
+ }
+
+}
+
+.search-container input{
+    width: 30%;
+
+    @media screen and (max-width: 730px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 50%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+
+        text-align: center;
+        display: inline-block;
+    }
+   
+}
+
+.search-container h6{
+    width: 30%;
+    text-align: right;
+    margin-right: 1em;
+    width: 30%;
+
+    @media screen and (max-width: 730px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 50%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+        
+        text-align: center;
+        display: inline-block;
+        
+    }
+}
+
 
 
 .external{      /* Per avere gli alementi uno in parte all'altro*/
@@ -118,5 +182,11 @@
         font-size: 15px;
         margin-left: 0px;
     }
+}
+
+.hidden{
+    
+    font-size: 35px;
+    text-shadow: 1px 1px orangered;
 }
 

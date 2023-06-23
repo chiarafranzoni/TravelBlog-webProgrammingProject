@@ -42,13 +42,38 @@ elementsList.css
 
     
     <div class="top-external" style=" border: 1px solid darkgreen  ;">
-        <button class="btn add" style="
-        background-color: whitesmoke;
-        box-shadow: 1px 1px darkgreen;"> <a class="dropdown-item" href="{{route('attraction.add')}}"> Add an Attraction </a></button>
 
-       
-        <input class="form-control" id="search" type="text" placeholder="Search..">
+        <div class="info-container ">
+           <p style="  font-family: 'Lucida Handwriting'; font-size:1.3rem;">
+            Hey, wanna have some fun? Or maybe learn something super cool? 
+           </p>
+           <p>
+            Well, you are in the right place! Here you can find many attractions
+            that other people have shared, to help discover hidden treasures! <br>
+            Try searching for something or ... add something yourself!
+            
+            </p>
+        </div>
 
+        <div class="search-container">
+            <h6> What are you looking for ?</h6>
+            <input class="form-control" id="search" type="text" placeholder="Type a name">
+        </div>
+
+        <div class="search-container">
+            <h6> Where do you wanna go ?</h6>
+            <input class="form-control" id="search" type="text" placeholder="Type a locality">
+        </div>
+
+        
+        <div class="search-container">
+            <button class="btn add" style="
+            margin-top:2em;
+            background-color: whitesmoke;
+            box-shadow: 1px 1px darkgreen;"> <a class="dropdown-item" href="{{route('attraction.add')}}"> Add an Attraction </a></button>
+
+        </div>
+        
     </div>
 
         
@@ -108,8 +133,11 @@ elementsList.css
                             
             @endforeach
 
-            <span class="hidden" style="display: none"> OPS... it seems that what you are looking for doesn't exist ! </span>
-
+            <!-- Metto un div che apparirà solo nel caso in cui la ricerca non dia risultati-->
+            <div  style="text-align: center; margin-bottom:2em; padding:1em">
+                <span class="hidden" style="display: none"> OPS... <br>It seems that what you are looking for doesn't exist .</span>
+                <span class="hidden" style="display: none; font-size: 25px; text-shadow: none;"><br> Try searching again, maybe it will be the right time !</span>
+            </div>
  
  <script>
      $(document).ready(function () {
