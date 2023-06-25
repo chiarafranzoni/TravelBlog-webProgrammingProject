@@ -24,6 +24,8 @@ use App\Http\Controllers\AttractionController;
     /* ATTRACTION */
     Route::get('/attraction/add', [ AttractionController::class, 'add'])->name('attraction.add');
     Route::post('/attraction/store', [  AttractionController::class, 'store'])->name('attraction.store');
+    Route::get('/ajaxFormCheckAttraction',[AttractionController::class, 'ajaxCheck']);
+    
 
     /* RESTAURANT */
     Route::get('/restaurant/add', [ RestaurantController::class, 'add'])->name('restaurant.add');

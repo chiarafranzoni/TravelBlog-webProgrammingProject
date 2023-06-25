@@ -59,6 +59,8 @@ attractionAdd.css
               <input class='form-control' type="text" id="name" name="name" placeholder="Name"> <!--Con placeholder, inserisco un terto provvisorio-->
 
             </div>
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id= "invalid-name" style="color:red;"></span>
 
             <br>
 
@@ -69,9 +71,9 @@ attractionAdd.css
               
               <select class="form-select " type="text" id="category" name="category" placeholder="Category">
                 
-                <option selected>Category </option>
+                <option selected>Category</option>
 
-                @foreach (['MUSEUM', 'PARK', 'GARDEN'] as $item)
+                @foreach (['MUSEUM', 'PARK', 'GARDEN', 'SQUARE', 'LAKE','SEA','MOUNTAIN','CITY'] as $item)
 
                 <option value="{{$item}}">{{strtolower($item)}}</option>
                     
@@ -81,6 +83,10 @@ attractionAdd.css
               </select>
 
             </div>
+
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id="invalid-category" style="color:red;"></span>
+
 
             <br>
 
@@ -190,8 +196,10 @@ attractionAdd.css
             <br>
 
             <a class="btn btn-secondary" href="{{route('attraction.index')}}"> Cancel</a>
-            <input class="btn subscribeForm-btn" type="submit" value="Submit">
+            <input class="btn subscribeForm-btn" type="submit" value="Submit" onclick="checkForm(event,'ATTRACTION');">
           
+            <!-- CONTROLLO SULLA FORM: creo un script checkForm nel file js, passando il parametro event, usato per prevenire l'azione di default-->
+           
 
         </form>
       </div>
