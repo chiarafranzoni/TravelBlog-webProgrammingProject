@@ -712,6 +712,42 @@ class DataLayer
     }
 
 
+    // dato il nome dell'attraction, cerco se c'è un indirizzo che corrisponde a quello inserito,
+    // altrimenti torno null -> NON c'è nessuna attraction che corrisponde
+    public function findExistingAttraction($name, $type, $street_and_number,$city, $province){
+
+        $attractions= Attraction::select("*")
+                    ->where([
+                        ["name", "=", $name]
+                    ])
+                    ->get();
+
+        for( $i=0; $i<count($attractions); $i++){
+
+            $address_id=$attractions[$i]->address_id;
+
+            $addresses= Address::select("*")
+                    ->where([
+                        ["id", "=", $address_id]
+                    ])
+                    ->get();
+
+            if( $addresses[0] &&
+                $addresses[0]->street_and_number == $street_and_number &&
+                $addresses[0]->city == $city &&
+                $addresses[0]->province == $province ){
+
+                    return $attractions[$i]->id;
+
+            }
+        
+        }
+
+    return null;
+
+    }
+
+
 
 
 

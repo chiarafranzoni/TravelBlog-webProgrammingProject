@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('price', ['ECONOMIC', 'AVERAGE', 'EXPENSIVE']);
 
             $table->enum('category', ['HOUSING', 'ATTRACTION', 'RESTAURANT']);
-            $table->String('description');
+            $table->String('description',2000);
             $table->String('link')->nullable();
             $table->String('place_image')->nullable();
             $table->integer('stars');

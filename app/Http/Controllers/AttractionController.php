@@ -106,9 +106,27 @@ class AttractionController extends Controller
 
 
    public function ajaxCheck(Request $req){
+      
+      $dl= new DataLayer();
 
+      $attractionId= $dl->findExistingAttraction(
+         $req->input('name'),
+         $req->input('type'),
+         $req->input('street_and_number'),
+         $req->input('city'),
+         $req->input('province')
+      );
+
+      if ($attractionId) { // Se trovo l'id, lo ritorno, perchè esiste già l'attraction
+
+         $response=array("found"=>$attractionId);
+         
+      }else{   // Altrimenti torno false
+
+         $response=array("found"=>false);
+      }
     
-      $response=array("found"=>false);
+      
       return response()->json($response);
    }
 }

@@ -49,20 +49,40 @@
     align-items: center; /*posiziono la form al centro*/
     background-image:url(https://static.vecteezy.com/system/resources/previews/002/687/496/original/the-pyramids-of-egypt-egyptian-pyramids-on-the-river-the-cheops-pyramid-in-cairo-in-giza-egyptian-stone-structures-illustration-free-vector.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
+   
     align-items: center; /*posiziono la form al centro*/
     padding: 3em;
-
-    @media screen and (max-width: 800px) {  /*Finchè la grandezza è sotto i 600px*/
-       
-        background-position: -500px ;
+    display: flex;
+    
+   @media screen and (max-width: 800px) {  
+   
+    background-position: -500px ;
     }
 
-    @media screen and (max-width: 500px) {  /*Finchè la grandezza è sotto i 600px*/
-       
+    @media screen and (max-width: 500px) { 
+    
         padding: 1.5em;
     }
+
+  
+}
+
+ 
+.externalAlreadyPresent{      /*Definisco il container esterno per il colore*/
+
+    
+    display: flex;
+    justify-content: center; /*posiziono la form al centro*/
+    background-image:url(https://static.vecteezy.com/system/resources/previews/002/687/496/original/the-pyramids-of-egypt-egyptian-pyramids-on-the-river-the-cheops-pyramid-in-cairo-in-giza-egyptian-stone-structures-illustration-free-vector.jpg);
+    background-size: cover;
+
+    min-height: calc(100vh - 56px);
+   
+    align-items: center; /*posiziono la form al centro*/
+    padding: 3em;
+    display: flex;
+
+  
 }
 
 

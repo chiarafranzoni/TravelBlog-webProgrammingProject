@@ -124,7 +124,7 @@ if (stars_value ==="" || ![0,1,2,3,4,5].includes(parseInt(stars_value))) {   // 
   */ 
 
 street= $("#street_and_number");
-street_msg=$("#invalid-street");
+street_msg=$("#invalid-street_and_number");
 
 var street_box = document.getElementById("street_and_number");
 
@@ -222,6 +222,7 @@ if (province.val().trim() ==="") {   // Se il titolo privato degli spazi è la s
               method: 'get',
               data: {  
                 name: entity_name.val().trim(), 
+                type: entity_type,
                 street_and_number: street.val().trim(),
                 city: city.val().trim(),
                 province: province.val().trim()
@@ -233,8 +234,11 @@ if (province.val().trim() ==="") {   // Se il titolo privato degli spazi è la s
 
                 if (response.found) {   
 
-                    // AGGIUNGO A CIO CHE C'È GIA A DATABASE
-                     console.log('presente')
+                    //Mostro un div per chiedere conferma all'utente
+
+                    document.getElementById("elementForm").style.display= 'none';
+                    document.getElementById("alreadyPresent").style.display=  'block';
+
                 } else {
 
                     $("form[name="+form_name+"]").submit();
@@ -246,5 +250,16 @@ if (province.val().trim() ==="") {   // Se il titolo privato degli spazi è la s
     }
       
   
+
+}
+
+function handleChange(event){
+
+
+  event.target.style.borderWidth= "1px";
+  event.target.style.borderColor="black";
+  
+  $('#invalid-'+event.target.id).html("");
+
 
 }

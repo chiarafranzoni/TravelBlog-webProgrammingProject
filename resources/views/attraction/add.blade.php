@@ -29,11 +29,11 @@ attractionAdd.css
 
 @section('corpo')
 
-  <div class="external">
+  <div class="external"  id='elementForm' >
     
     <br>
 
-    <div class="container">
+    <div class="container" >
 
 
       <div class="row">
@@ -56,7 +56,7 @@ attractionAdd.css
             <div class="input-box" id="name-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
-              <input class='form-control' type="text" id="name" name="name" placeholder="Name"> <!--Con placeholder, inserisco un terto provvisorio-->
+              <input class='form-control' type="text" id="name" name="name" placeholder="Name" oninput="handleChange(event)"> <!--Con placeholder, inserisco un terto provvisorio-->
 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
@@ -69,7 +69,7 @@ attractionAdd.css
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
               
-              <select class="form-select " type="text" id="category" name="category" placeholder="Category">
+              <select class="form-select " type="text" id="category" name="category" placeholder="Category" oninput="handleChange(event)">
                 
                 <option selected>Category</option>
 
@@ -95,7 +95,7 @@ attractionAdd.css
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
 
-              <select class="form-select " id="price" name="price">
+              <select class="form-select " id="price" name="price" oninput="handleChange(event)">
                 <option selected>Price</option>
 
                 @foreach (['ECONOMIC', 'AVERAGE', 'EXPENSIVE'] as $item)
@@ -115,7 +115,7 @@ attractionAdd.css
             <label for="description"> Description</label>
             <div class="input-box">
 
-              <textarea class='form-control' type="text" id="description" name="description" placeholder="Description" rows="5"></textarea>
+              <textarea class='form-control' type="text" id="description" name="description" placeholder="Description" rows="5" oninput="handleChange(event)"></textarea>
 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
@@ -149,7 +149,7 @@ attractionAdd.css
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
-              <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars"> 
+              <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars"  oninput="handleChange(event)"> 
 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
@@ -171,17 +171,17 @@ attractionAdd.css
 
             <label for="street_and_number"> Street and Number</label> 
             <div class="address-box">  
-              <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number"> 
+              <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number"  oninput="handleChange(event)"> 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
-            <span class='invalid-input' id="invalid-street" style="color:red;"></span>
+            <span class='invalid-input' id="invalid-street_and_number" style="color:red;"></span>
 
 
             <br>
 
             <label for="city"> City</label>
             <div class="address-box">                
-              <input class='form-control' type="text" id="city" name="city" placeholder="City"> 
+              <input class='form-control' type="text" id="city" name="city" placeholder="City"  oninput="handleChange(event)"> 
             </div>
              <!-- INserisco dei messaggi in caso di info errate-->
              <span class='invalid-input' id="invalid-city" style="color:red;"></span>
@@ -191,7 +191,7 @@ attractionAdd.css
 
             <label for="province"> Province</label>
             <div class="address-box">                
-              <input class='form-control' type="text" id="province" name="province" placeholder="Province"> 
+              <input class='form-control' type="text" id="province" name="province" placeholder="Province"  oninput="handleChange(event)"> 
             </div>
              <!-- INserisco dei messaggi in caso di info errate-->
              <span class='invalid-input' id="invalid-province" style="color:red;"></span>
@@ -220,11 +220,45 @@ attractionAdd.css
            
 
         </form>
+
       </div>
+
+      
 
    
     </div>
 
+  </div>
+
+  <!-- div -->
+
+  <div class="externalAlreadyPresent" id="alreadyPresent"  style="display: none">
+    
+    <br>
+
+    <div class="container" >
+
+
+        <div class="row">
+
+            <div class="title-text">
+              <h3 > Add Attraction </h3>
+
+            </div>
+
+            <div  style="display: block; text-align:center; margin-bottom:2em;  height: 200px">
+                <h5>Hey, this attraction has already been insert!</h5>
+                <h6> If you press PROCEED, your info will be added to the ones already present</h6>
+
+                <div style="display: flex; justify-content:center; margin-top:3em;">
+                
+                    <button class="btn btn-light" style="margin-right: 1.5em"> Go back</button>
+                    
+                    <button class="btn btn-success"> Proceed </button>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
    
 @endsection
