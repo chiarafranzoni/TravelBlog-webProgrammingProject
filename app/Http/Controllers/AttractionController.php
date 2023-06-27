@@ -58,15 +58,20 @@ class AttractionController extends Controller
         $user=$dl->getUser($_SESSION['email']);
 
         $image= $req->file('image');
-        $image_name= $req->file('image')->getClientOriginalName();
+        $image_name=null;
 
-         // Concateno all'inizio del nome dell'immagine nche l'id dell'utente
-         // => anche se due utenti mettono un immagine con lo stesso nome, non ci sono problemi
-        $image_name= ($user->id).$image_name;  
+        if($image){
+          $image_name= $req->file('image')->getClientOriginalName();
 
-        //Salvo l'immagine
-        $req->file('image')->storeAs('public/images/', $image_name);  // Salvo l'immagine in storage->app->public->images con il nome con cui l'ho salvata
-
+          // Concateno all'inizio del nome dell'immagine nche l'id dell'utente
+          // => anche se due utenti mettono un immagine con lo stesso nome, non ci sono problemi
+         $image_name= ($user->id).$image_name;  
+ 
+         //Salvo l'immagine
+         $req->file('image')->storeAs('public/images/', $image_name);  // Salvo l'immagine in storage->app->public->images con il nome con cui l'ho salvata
+ 
+        }
+      
          $dl->addAttraction($req->input('name'), $req->input('category'), $req->input('price'), $req->input('description')
                      , $req->input('link'), $req->input('stars'), $req->input('public'),$image_name, $user
                      , $req->input('street_and_number'),$req->input('city'),$req->input('province'),$req->input('country'),$req->input('postcode'));
@@ -97,5 +102,13 @@ class AttractionController extends Controller
   
          }
 
+   }
+
+
+   public function ajaxCheck(Request $req){
+
+    
+      $response=array("found"=>false);
+      return response()->json($response);
    }
 }

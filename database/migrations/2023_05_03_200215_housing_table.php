@@ -19,7 +19,7 @@ return new class extends Migration
             $table->increments('id');
             $table->String('name');
 
-            $table->enum('type', ['CHALET', 'B&B', 'HOTEL']);
+            $table->enum('type', ['CHALET', 'B&B', 'HOTEL','CAMPING','HOLIDAY VILLAGE','CABIN','TREEHOUSE','CASTLE','HOUSEBOAT','TRULLO']);
 
             $table-> integer('address_id')->unsigned();  //chiave esterna che punterà alla tabella address
 

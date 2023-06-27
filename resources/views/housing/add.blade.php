@@ -71,7 +71,7 @@ housingAdd.css
                 
                 <option selected>Category </option>
 
-                @foreach (['CHALET', 'B&B', 'HOTEL'] as $item)
+                @foreach (['CHALET', 'B&B', 'HOTEL','CAMPING','HOLIDAY VILLAGE','CABIN','TREEHOUSE','CASTLE','HOUSEBOAT','TRULLO'] as $item)
 
                 <option value="{{$item}}">{{strtolower($item)}}</option>
                     

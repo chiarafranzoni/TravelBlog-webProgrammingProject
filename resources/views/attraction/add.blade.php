@@ -44,7 +44,7 @@ attractionAdd.css
         </div>
 
         <!-- Con metodo post: aggiungo queste info a database, invocando il metodo store nello UserController-->
-        <form method="post" action="{{route('attraction.store')}}" enctype="multipart/form-data">
+        <form name='attraction' method="post" action="{{route('attraction.store')}}" enctype="multipart/form-data">
             @csrf  <!-- OBBLIGATORIO PER SICUREZZA dopo ogni form: cross site request forgery-->
 
 
@@ -53,7 +53,7 @@ attractionAdd.css
             
 
             <label for="name"> Name</label>
-            <div class="input-box">
+            <div class="input-box" id="name-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
               <input class='form-control' type="text" id="name" name="name" placeholder="Name"> <!--Con placeholder, inserisco un terto provvisorio-->
@@ -90,13 +90,13 @@ attractionAdd.css
 
             <br>
 
-            <label for="price"> Price</label>
+            <label for="price">Price</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
 
               <select class="form-select " id="price" name="price">
-                <option selected>Price </option>
+                <option selected>Price</option>
 
                 @foreach (['ECONOMIC', 'AVERAGE', 'EXPENSIVE'] as $item)
 
@@ -107,6 +107,8 @@ attractionAdd.css
               </select>
              
             </div>
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id="invalid-price" style="color:red;"></span>
 
             <br>
 
@@ -116,6 +118,9 @@ attractionAdd.css
               <textarea class='form-control' type="text" id="description" name="description" placeholder="Description" rows="5"></textarea>
 
             </div>
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id="invalid-description" style="color:red;"></span>
+
 
             <br>
 
@@ -123,9 +128,10 @@ attractionAdd.css
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-person"></i>
-              <input class='form-control' type="text" id="link" name="link" placeholder="Link"> 
+              <input class='form-control' type="text" id="link" name="link" placeholder="Insert a useful link for other users"> 
 
             </div>
+            
 
             <br>
 
@@ -146,6 +152,9 @@ attractionAdd.css
               <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars"> 
 
             </div>
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id="invalid-stars" style="color:red;"></span>
+
 
             <br>
 
@@ -155,7 +164,7 @@ attractionAdd.css
                 <input  type="checkbox" id="public" name="public" placeholder="Public"> 
                 <span> Do you want to make this visible to others?</span>
               </div>            
-              
+          
 
             <br>
 
@@ -164,6 +173,9 @@ attractionAdd.css
             <div class="address-box">  
               <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number"> 
             </div>
+            <!-- INserisco dei messaggi in caso di info errate-->
+            <span class='invalid-input' id="invalid-street" style="color:red;"></span>
+
 
             <br>
 
@@ -171,6 +183,9 @@ attractionAdd.css
             <div class="address-box">                
               <input class='form-control' type="text" id="city" name="city" placeholder="City"> 
             </div>
+             <!-- INserisco dei messaggi in caso di info errate-->
+             <span class='invalid-input' id="invalid-city" style="color:red;"></span>
+
 
             <br>
 
@@ -178,6 +193,9 @@ attractionAdd.css
             <div class="address-box">                
               <input class='form-control' type="text" id="province" name="province" placeholder="Province"> 
             </div>
+             <!-- INserisco dei messaggi in caso di info errate-->
+             <span class='invalid-input' id="invalid-province" style="color:red;"></span>
+
 
             <br>
 

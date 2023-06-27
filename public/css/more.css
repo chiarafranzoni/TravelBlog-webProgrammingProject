@@ -160,6 +160,13 @@ img{
     color: darkslategrey;
   }
 
+.link{
+
+    display: inline-block;
+    word-break: break-all;
+}
+
+
 .comment-slide .carousel-control-next-icon, .comment-slide .carousel-control-prev-icon  {
     background-color: black;
 }
@@ -174,4 +181,31 @@ img{
     position: absolute;
     bottom: 0px;
     padding-bottom: 0px;
+}
+
+
+.top-rating {
+
+    margin-left:10px;
+    position: relative;
+    top: -3px;
+    background-color: gold;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+
+}
+
+.price-btn{
+
+    margin-top: 1em;
+    background-color: olivedrab;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+
 }

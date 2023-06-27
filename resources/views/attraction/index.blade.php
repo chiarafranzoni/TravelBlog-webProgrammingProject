@@ -57,12 +57,12 @@ elementsList.css
 
         <div class="search-container">
             <h6> What are you looking for ?</h6>
-            <input class="form-control" id="search" type="text" placeholder="Type a name">
+            <input class="form-control" id="searchName" type="text" placeholder="Type a name">
         </div>
 
         <div class="search-container">
             <h6> Where do you wanna go ?</h6>
-            <input class="form-control" id="search" type="text" placeholder="Type a locality">
+            <input class="form-control" id="searchLocality" type="text" placeholder="Type a locality">
         </div>
 
         
@@ -97,27 +97,49 @@ elementsList.css
                                     </div>
 
                                     <div class="card-wrapper col-xs-5  col-md-6 col-lg-7">
-                                        <div class="card-body">
+                                        <div class="card-body" style="height: 100%; display: grid;">
                                             <h5 class="card-title" style="font-family: 'Poor Richard'; font-size: 40px;"> 
                                                 {{$attraction->name}} 
 
-                                                 <!-- STampo stelline : vedi restaurant --> 
-
                                             </h5>
                                             <p class="card-text">
-                                                <span class="badge badge-pill bg-primary"> <i class="fas fa-pizza-slice"></i>
+                                                <span class="badge badge-pill bg-primary"> 
+                                                    
+                                                    @if ( value($attraction->type) == 'PARK')
+                                                        <i class="bi bi-balloon"></i>
+                                            
+                                                    @elseif( value($attraction->type) == 'GARDEN')
+                                                        <i class="bi bi-flower1"></i>
+
+                                                    @elseif( value($attraction->type) == 'CITY' || value($attraction->type) == 'MUSEUM' || value($attraction->type) == 'SQUARE' )
+                                                        <i class="bi bi-bank"></i>
+
+                                                    @elseif( value($attraction->type) == 'MOUNTAIN' )
+                                                        <i class="fa-solid fa-mountain"></i>
+
+                                                    @elseif( value($attraction->type) == 'SEA' || value($attraction->type) == 'LAKE'  )
+                                                        <i class="bi bi-water"></i>
+                                                    @endif
+
                                                     {{$attraction->type}}
                                                 </span>
-                                                <span class="badge badge-pill bg-primary bs-color"> Rating</span>
-                                                <small class="card-subtitle mb-3"> Price</small> 
+                                                
                                     
                                             </p>
-                                            <p class="card-text">{{$attraction->info->description}}</p>
+                                            <p class="card-text card-address" style="margin-bottom: 2em;">
+                                                <i class="bi bi-geo-alt-fill"></i> 
+                                                {{$attraction->address->street_and_number}},
+                                                {{$attraction->address->postcode}},
+                                                {{$attraction->address->city}}
+                                                ({{$attraction->address->province}}),
+                                                {{$attraction->address->country}} </p>
                             
-                                            <p class="card-text float-right">
-                                                <small class="text-muted">See More !</small>
+                                            <p class="card-text float-right" style=" display:flex; align-content:baseline; ">
+
+                                                <small class="text-muted" >Wanna see what other people think about this?</small>
                                             </p>
-                                            <div class='w-100'>
+                                            <div class='w-100' >
+                                            
                                                 <a href="{{route('attraction.more', ['id' => $attraction->id])}}" class="btn btn-secondary more">
                                                     See More!
                                                 </a>
@@ -143,7 +165,7 @@ elementsList.css
      $(document).ready(function () {
 
 
-            $("#search").on("keyup", function () {
+            $("#searchName").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
                 $(".external").filter(function () {
 
@@ -165,7 +187,31 @@ elementsList.css
 
 
             });
-     });
+
+
+            $("#searchLocality").on("keyup", function () {
+                var locationValue = $(this).val().toLowerCase();
+                $(".external").filter(function () {
+
+                        $(this).toggle($(this).find($(".card-address")).text().toLowerCase().indexOf(locationValue) > -1)
+                        
+
+                });
+
+                
+                var dim = $('.external').is(":visible");
+
+                if (dim == false) {
+                    $(".hidden").show();
+                } else {
+                    $(".hidden").hide();   
+                }
+
+                
+
+
+            });
+    });
 
  </script>
     

@@ -150,39 +150,6 @@
 
 }
 
-.top-rating {
-
-    margin-left: 4rem;
-    position: relative;
-    top: -3px;
-    background-color: gold;
-    font-family: 'sans-serif'; 
-    font-size: 20px;
-
-    @media screen and (max-width: 992px) {  /*Finchè la grandezza è sotto i 600px*/
-        
-        font-size: 20px;
-        margin-left: 0px;
-    }
-
-    @media screen and (max-width: 769px) {  /*Finchè la grandezza è sotto i 600px*/
-      
-        font-size: 20px;
-        margin-left: 0rem;
-    }
-
-    @media screen and (max-width: 767px) {  /*Finchè la grandezza è sotto i 600px*/
-      
-        font-size: 20px;
-        margin-left: 4rem;
-    }
-
-    @media screen and (max-width: 460px) {  /*Finchè la grandezza è sotto i 600px*/
-        
-        font-size: 15px;
-        margin-left: 0px;
-    }
-}
 
 .hidden{
     

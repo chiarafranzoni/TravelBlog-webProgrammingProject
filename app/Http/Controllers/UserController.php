@@ -107,8 +107,11 @@ class UserController extends Controller
         $attractions=array(); 
         $attractions=$dl->getUserAttraction($_SESSION['email']);
 
+        $restaurants=array(); 
+        $restaurants=$dl->getUserRestaurant($_SESSION['email']);
 
-        return view('user.adventures')->with('housings_list', $housings)->with('attractions_list', $attractions)->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
+
+        return view('user.adventures')->with('housings_list', $housings)->with('attractions_list', $attractions)->with('restaurants_list', $restaurants)->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
     }
 
 }

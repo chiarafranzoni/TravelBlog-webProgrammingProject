@@ -160,6 +160,65 @@ class DataLayer
     
     }
 
+    public function getUserRestaurant($email){
+
+        // Ritorna l'array di utenti con mail corrispondente a mail
+
+        $users= myUser::where('email',$email)->get();
+        
+        $restaurantInfo_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                    ->where([
+                        ["myuser_id", "=", $users[0]->id]
+                    ])
+                    ->where([
+                        ["category", "=", "RESTAURANT"]
+                    ])
+                    ->get();
+
+
+        $restaurants=[];
+
+        foreach ($restaurantInfo_array as $info)  {            /* Per ciascun indice, verifico a quale housing corrisponde l'id*/
+
+            
+            $restaurant = Restaurant::select("*")
+                    ->where([
+                        ["id", "=", $info->ref_id]
+                    ])
+                    ->get();
+
+            if($restaurant && count($restaurant)){    // se housing esiste lo pusho 
+                
+                
+                $restaurant[0]-> info= $info;      // Assegno la chiave info il valore $info
+               
+                array_push($restaurants,$restaurant[0]);  // Pusho nell'array sia l'housing che le sue info relative
+            
+            }
+
+        }   
+
+        return $restaurants;
+    
+    }
+
+
+    /*
+    *           UTILI IN GENERALE
+    */
+
+    public function getAddressFromId($id){
+
+        $address = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+        
+        ->where([
+            ["id", "=", $id]
+        ])
+        ->get();
+
+
+        return $address[0];
+    }
 
 
 
@@ -168,15 +227,6 @@ class DataLayer
      * 
      */
 
-    
-
-     // Metodo per avere la lista in ordine alfabetico dei ristoranti
-     // => usata in RestaurantController
-
-    public function listRestaurants(){
-
-        return Restaurant::orderBy('name','asc')->get();
-    }
 
     public function publicRestaurantFromInfo(){            /* Mi faccio tornare le attrazioni dalle info */
 
@@ -212,8 +262,30 @@ class DataLayer
 
         }   
 
+        
+        $addresses=[];
+
+
+        for ($i=0; $i < count($restaurants); $i++) { 
+
+            $addresses = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                
+                ->where([
+                    ["id", "=", $restaurants[$i]->address_id]
+                ])
+                ->get();
+
+            if($addresses && count($addresses)){    // se housing esiste lo pusho 
+                
+                
+                $restaurants[$i]->address= $addresses[0];     // Assegno la chiave info il valore $info
+
+            }
+        }
+
         return $restaurants;
-     }
+    }
+
 
      // Metodo per aggiungere una RESTAURANT alla table
     public function addRestaurant($name,$category,$price, $description,$link,$stars,$public,$image_name,$user,
@@ -320,7 +392,7 @@ class DataLayer
      * 
      */
 
-     public function publicHousingFromInfo(){            /* Mi faccio tornare le case dalle info */
+    public function publicHousingFromInfo(){            /* Mi faccio tornare le case dalle info */
 
         $housingInfo_array = Generalinfo::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
                     ->where([
@@ -352,76 +424,32 @@ class DataLayer
             
             }
 
-        }   
-
-        return $housings;
-     }
-
-
-     
-    public function isAnHousing(){  /* Torna un array di GeneralInfo con category housing */
-
-        $housings_info = Generalinfo::select("*")
-                    ->where([
-                        ["category", "=", "HOUSING"]
-                    ])
-                    ->get();
-
-                    console_log($housings_info);
+        }  
         
-        return $housings_info;
-    }
+        $addresses=[];
 
 
+        for ($i=0; $i < count($housings); $i++) { 
 
-    public function idHousingInfo(){            /* Mi faccio tornare i ref_id delle generalinfo che hanno housing */
-
-        $id_array = Generalinfo::select("*")
-                    ->where([
-                        ["category", "=", "HOUSING"]
-                    ])
-                    ->pluck('ref_id')->toArray();
-
-        console_log($id_array);
-        
-        return $id_array ;
-    }
-
-
-
-    public function getHousingFromInfo($id_array){
-
-        $housings=[];
-
-        foreach ($id_array as $ref_id)  {            /* Per ciascun indice, verifico a quale housing corrisponde l'id*/
-
-            console_log($ref_id);
-
-           
-            $housing = Housing::select("*")
-                    ->where([
-                        ["id", "=", $ref_id]
-                    ])
-                    ->get();
-
-            if($housing && count($housing)){    // se housing esiste lo pusho 
+            $addresses = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
                 
-                array_push($housings, $housing[0]); // Pusho l'unico elemento di housing nell'array
+                ->where([
+                    ["id", "=", $housings[$i]->address_id]
+                ])
+                ->get();
+
+            if($addresses && count($addresses)){    // se housing esiste lo pusho 
+                
+                
+                $housings[$i]->address= $addresses[0];     // Assegno la chiave info il valore $info
+
             }
-        }   
+        }
+        
 
         return $housings;
     }
 
-
-     // Metodo per avere la lista in ordine alfabetico dei ristoranti
-     // => usata in RestaurantController
-
-    public function listHousing(){
-
-
-        return Housing::orderBy('name','asc')->get();
-    }
 
     // Metodo per aggiungere una HOUSING alla table
     public function addHousing($name,$category,$price, $description,$link,$stars,$public,$image_name,$user,
@@ -522,20 +550,6 @@ class DataLayer
         return $Info_array;
     }
 
-    public function getAddressFromId($id){
-
-        $address = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
-        
-        ->where([
-            ["id", "=", $id]
-        ])
-        ->get();
-
-
-        return $address[0];
-    }
-
-
 
     /**
      *      METODI PER ATTRACTION
@@ -576,10 +590,30 @@ class DataLayer
 
         }   
 
+        $addresses=[];
+
+
+        for ($i=0; $i < count($attractions); $i++) { 
+
+            $addresses = Address::select("*")       /* Ritorno tutte le info riguardanti housing e che sono pubbliche*/
+                
+                ->where([
+                    ["id", "=", $attractions[$i]->address_id]
+                ])
+                ->get();
+
+            if($addresses && count($addresses)){    // se housing esiste lo pusho 
+                
+                
+                $attractions[$i]->address= $addresses[0];     // Assegno la chiave info il valore $info
+
+            }
+        }
+
         return $attractions;
      }
 
-     // Metodo per aggiungere una HOUSING alla table
+     // Metodo per aggiungere una ATTRACTION alla table
     public function addAttraction($name,$category,$price, $description,$link,$stars,$public,$image_name,$user,
     $street_and_number, $city,$province,$country,$postcode
         ) {
@@ -675,6 +709,100 @@ class DataLayer
 
 
         return $Info_array;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Vecchie funzioni
+     */
+
+
+     // Metodo per avere la lista in ordine alfabetico dei ristoranti
+     // => usata in RestaurantController
+
+     public function listRestaurants(){
+
+        return Restaurant::orderBy('name','asc')->get();
+    }
+
+
+
+
+    public function isAnHousing(){  /* Torna un array di GeneralInfo con category housing */
+
+        $housings_info = Generalinfo::select("*")
+                    ->where([
+                        ["category", "=", "HOUSING"]
+                    ])
+                    ->get();
+
+                    console_log($housings_info);
+        
+        return $housings_info;
+    }
+
+
+
+    public function idHousingInfo(){            /* Mi faccio tornare i ref_id delle generalinfo che hanno housing */
+
+        $id_array = Generalinfo::select("*")
+                    ->where([
+                        ["category", "=", "HOUSING"]
+                    ])
+                    ->pluck('ref_id')->toArray();
+
+        console_log($id_array);
+        
+        return $id_array ;
+    }
+
+
+
+    public function getHousingFromInfo($id_array){
+
+        $housings=[];
+
+        foreach ($id_array as $ref_id)  {            /* Per ciascun indice, verifico a quale housing corrisponde l'id*/
+
+            console_log($ref_id);
+
+           
+            $housing = Housing::select("*")
+                    ->where([
+                        ["id", "=", $ref_id]
+                    ])
+                    ->get();
+
+            if($housing && count($housing)){    // se housing esiste lo pusho 
+                
+                array_push($housings, $housing[0]); // Pusho l'unico elemento di housing nell'array
+            }
+        }   
+
+        return $housings;
+    }
+
+
+     // Metodo per avere la lista in ordine alfabetico dei ristoranti
+     // => usata in RestaurantController
+
+    public function listHousing(){
+
+
+        return Housing::orderBy('name','asc')->get();
     }
 }
 

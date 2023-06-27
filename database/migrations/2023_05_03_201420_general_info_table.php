@@ -24,8 +24,8 @@ return new class extends Migration
 
             $table->enum('category', ['HOUSING', 'ATTRACTION', 'RESTAURANT']);
             $table->String('description');
-            $table->String('link');
-            $table->String('place_image');
+            $table->String('link')->nullable();
+            $table->String('place_image')->nullable();
             $table->integer('stars');
 
             $table->boolean('public');

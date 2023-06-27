@@ -71,7 +71,7 @@ restaurantAdd.css
                 
                 <option selected>Category </option>
 
-                @foreach (['RESTAURANT', 'CAFE', 'TAVERN', 'BREWERY','PIZZERIA','PUB', 'ICE-CREAM SHOP'] as $item)
+                @foreach (['RESTAURANT', 'CAFE', 'TAVERN', 'BREWERY','PIZZERIA','PUB', 'ICE-CREAM SHOP','BAKERY'] as $item)
 
                 <option value="{{$item}}">{{strtolower($item)}}</option>
                     

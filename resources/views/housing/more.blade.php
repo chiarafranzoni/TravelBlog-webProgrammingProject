@@ -70,57 +70,114 @@ more.css
         <h3><i class="bi bi-chat-dots"></i> What people say </h3>
         
 
+        <!-- SE HO 1 SOLA RECENSIONE -->
+
         @if (count($infos)== 1)
 
-        <div class="carousel-inner carousel-comment"> 
+            <div class="carousel-inner carousel-comment"> 
 
-            <h5>From {{$infos[0]->user->firstname}} : </h5>
-            @for ($i = 0; $i < 5 ; $i++)
-                @if ($i < value($infos[0]->stars))
-
-                     <i class="bi bi-star-fill"></i>
-                @else
-                    <i class="bi bi-star"></i>
+                <h5>From {{$infos[0]->user->firstname}} : </h5>
+                <div class="stars">
+                    @for ($i = 0; $i < 5 ; $i++)
                     
-                @endif
-            @endfor
-            <p style="margin-top: 0.5em;"> {{$infos[0]->description}} </p>
-        </div>   
+                        @if ($i < value($infos[0]->stars))
+
+                            <i class="bi bi-star-fill"></i>
+                        @else
+                            <i class="bi bi-star"></i>
+                            
+                        @endif
+                    @endfor
+
+                    @if ( value($infos[0]->stars)==5)
+
+                        
+                            <button type="button" class="btn top-rating"> TOP RATING</button> 
+
+                    @endif
+                </div>
+
+                
+                <button type="button" class="btn price-btn"> <i class="bi bi-currency-dollar" style="color: white"></i> {{$infos[0]->price}}</button> 
+
+
+                <p style="margin-top: 0.5em;"> {{$infos[0]->description}} </p>
+            </div>   
+         
             
+            
+        <!-- SE HO PIù  RECENSIONI E CREO UN CAROSELLO-->
+
         @else
+
+            
+            <!-- 1° COMMENTO -->
       
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner carousel-comment">
                     <div class="carousel-item active">
                         <h5>From {{$infos[0]->user->firstname}} : </h5>
-                        @for ($i = 0; $i < 5 ; $i++)
-                            @if ($i < value($infos[0]->stars))
 
-                                <i class="bi bi-star-fill"></i>
-                            @else
-                                <i class="bi bi-star"></i>
-                                
+                        <div class="stars">
+                            @for ($i = 0; $i < 5 ; $i++)
+                                @if ($i < value($infos[0]->stars))
+
+                                    <i class="bi bi-star-fill"></i>
+                                @else
+                                    <i class="bi bi-star"></i>
+                                    
+                                @endif
+
+                            @endfor
+
+                            
+                            @if ( value($infos[0]->stars)==5)
+
+                                <button type="button" class="btn top-rating"> TOP RATING</button> 
+
                             @endif
-                        @endfor
+    
+                        </div>
+
+                        
+                        <button type="button" class="btn price-btn">  <i class="bi bi-currency-dollar" style="color: white"></i>  {{$infos[0]->price}}</button> 
+
                         <p style="margin-top: 0.5em;"> {{$infos[0]->description}} </p>
 
                             <h5> 1 / {{count($infos)}} </h5>
                         
                     </div>
 
+                <!-- ITERO DAL SECONDO COMMENTO IN POI -->  
+
                 @for ($i = 1; $i <count($infos); $i++)
                 
                 <div class="carousel-item">
                     <h5>From {{$infos[$i]->user->firstname}} : </h5>
-                    @for ($j = 0; $j < 5 ; $j++)
-                        @if ($j < value($infos[$i]->stars))
-        
-                             <i class="bi bi-star-fill"></i>
-                        @else
-                            <i class="bi bi-star"></i>
-                            
-                        @endif
-                    @endfor
+
+                    <div class="stars">
+
+                        @for ($j = 0; $j < 5 ; $j++)
+                            @if ($j < value($infos[$i]->stars))
+            
+                                <i class="bi bi-star-fill"></i>
+                            @else
+                                <i class="bi bi-star"></i>
+                                
+                            @endif
+                        @endfor
+
+                        @if ( value($infos[$i]->stars)==5)
+
+                                <button type="button" class="btn top-rating"> TOP RATING</button> 
+
+                            @endif
+
+                    </div>
+
+                    
+                    <button type="button" class="btn price-btn">  <i class="bi bi-currency-dollar" style="color: white"></i>  {{$infos[$i]->price}}</button> 
+
                     <p style="margin-top: 0.5em;"> {{$infos[$i]->description}} </p>
 
                         <h5>{{$i+1}} / {{count($infos)}} </h5>
@@ -146,8 +203,8 @@ more.css
 
 </div>
 
-<!-- GALLERIA IMMAGINI-->
 
+<!-- GALLERIA IMMAGINI-->
 
 <div class="image-gallery">
 
@@ -156,11 +213,14 @@ more.css
         <h3 style="font-family: 'Poppins';"><i class="bi bi-camera"></i> Gallery </h3>
         
 
+        <!-- SE HO 1 SOLA IMMAGINE-->
+
         @if (count($infos)==1)
 
-        <img  src=" {{$infos[0]->place_image}}" class="d-block" >
+            <img  src=" {{$infos[0]->place_image}}" class="d-block" >
               
-            
+          
+        <!-- SE HO PIù IMMAGINI-->
         @else
 
     

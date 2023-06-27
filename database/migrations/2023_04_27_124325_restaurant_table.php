@@ -19,7 +19,7 @@ return new class extends Migration
             $table->increments('id');
             $table->String('name');
 
-            $table->enum('type', ['RESTAURANT', 'CAFE', 'TAVERN', 'BREWERY','PIZZERIA','PUB', 'ICE-CREAM SHOP']);
+            $table->enum('type', ['RESTAURANT', 'CAFE', 'TAVERN', 'BREWERY','PIZZERIA','PUB', 'ICE-CREAM SHOP','BAKERY']);
 
             $table-> integer('address_id')->unsigned();  //chiave esterna che punterà alla tabella address
 
