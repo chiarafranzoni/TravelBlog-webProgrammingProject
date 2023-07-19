@@ -41,7 +41,7 @@ class AttractionController extends Controller
       
     public function add(){
       return view('attraction.add')->with('logged',true)->with('loggedName', $_SESSION['loggedName']);
-  }
+   }
 
    // Per memorizzare la housing che inserisco del form
 
@@ -81,28 +81,139 @@ class AttractionController extends Controller
 
      public function more($id){ // Chiamo la rotta passando l'id della attraction che voglio visualizzare
 
-      session_start();
+         session_start();
+
+         $dl=new DataLayer(); // Creo un oggetto di tipo datalayer per poterne usare i metodi
+
+         $attraction=$dl->getAttractionFromId($id);  // Mi faccio tornare la attraction assoiciata all'id
+
+         $infos=$dl->getInfoFromAttractionId($attraction[0]->id);
+
+         $images=[];
+
+      for ($i=0; $i <count($infos) ; $i++) { 
+         
+            if ($infos[$i]->place_image!='' && $infos[$i]->place_image != 'http://localhost:8000/storage/images'){
+               
+               array_push($images,$infos[$i]->place_image); 
+            }
+            
+      }
+
+         $address=$dl->getAddressFromId($attraction[0]->address_id);
+
+         if(!isset($_SESSION['logged'])){
+
+            return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('images', $images)->with('address', $address)->with('logged',false);
+   
+            }
+            else{
+   
+            return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('images', $images)->with('address', $address)->with('logged',true)->with('loggedName', $_SESSION['loggedName']); /* il metodo permette di eseguire index in view*/
+   
+            }
+
+         
+   }
+
+
+   public function edit($id){ // Chiamo la rotta passando l'id della attraction che voglio visualizzare
+
 
       $dl=new DataLayer(); // Creo un oggetto di tipo datalayer per poterne usare i metodi
 
-      $attraction=$dl->getAttractionFromId($id);  // Mi faccio tornare la attraction assoiciata all'id
+      
+      $attractions=array(); 
+      $attractions=$dl->getUserAttractionByID($_SESSION['email'], $id);
 
-      $infos=$dl->getInfoFromAttractionId($attraction[0]->id);
+      
+      console_log($attractions[0]->info->description);
 
-      $address=$dl->getAddressFromId($attraction[0]->address_id);
+      $address=$dl->getAddressFromId($attractions[0]->address_id);
 
-      if(!isset($_SESSION['logged'])){
+      console_log($address);
 
-          return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('address', $address)->with('logged',false);
+      return view('attraction.edit')->with('attraction', $attractions[0])->with('address', $address)->with('logged',true)->with('loggedName', $_SESSION['loggedName']); /* il metodo permette di eseguire index in view*/
   
-         }
-         else{
-  
-          return view('attraction.more')->with('attraction', $attraction[0])->with('infos', $infos)->with('address', $address)->with('logged',true)->with('loggedName', $_SESSION['loggedName']); /* il metodo permette di eseguire index in view*/
-  
-         }
+   
 
    }
+
+
+   public function update(Request $req,$id){ // Per inviare le modifiche
+
+
+      session_start();
+      
+      $dl=new DataLayer(); 
+
+      
+      $user=$dl->getUser($_SESSION['email']);
+
+      $image= $req->file('image');
+      $image_name=null;
+
+      if($image){
+         $image_name= $req->file('image')->getClientOriginalName();
+
+         // Concateno all'inizio del nome dell'immagine nche l'id dell'utente
+         // => anche se due utenti mettono un immagine con lo stesso nome, non ci sono problemi
+      $image_name= ($user->id).$image_name;  
+
+      //Salvo l'immagine
+      $req->file('image')->storeAs('public/images/', $image_name);  // Salvo l'immagine in storage->app->public->images con il nome con cui l'ho salvata
+
+      }
+
+      console_log($req->input('category'));
+
+
+      $dl->editAttraction($id, $req->input('name'), $req->input('category'), $req->input('price'), $req->input('description')
+      , $req->input('link'), $req->input('stars'), $req->input('public'),$image_name, $user
+      , $req->input('street_and_number'),$req->input('city'),$req->input('province'),$req->input('country'),$req->input('postcode'));
+  
+      return Redirect::to(route('user.adventures'));
+
+   }
+
+   // Presenta una pagina per chiedere la conferma della cancellazione
+   public function confirmDestroy($id){ 
+
+
+      $dl=new DataLayer(); // Creo un oggetto di tipo datalayer per poterne usare i metodi
+
+      console_log($id);
+
+      
+      $attractions=array(); 
+      $attractions=$dl->getUserAttractionByID($_SESSION['email'], $id);
+
+      return view('attraction.delete')->with('attraction', $attractions[0])->with('logged',true)->with('loggedName', $_SESSION['loggedName']);
+
+   }
+
+   // Elimino li einfo dell'attarction relative a quell'utente
+   public function destroy($id){
+
+      $dl=new DataLayer(); 
+
+      $user=$dl->getUser($_SESSION['email']);  // Capisco che utente stia facendo le cose
+      /**
+       * 
+       * 
+       *    IMPLEMENTA IL DELETE NEL DATALAYER !
+       * 
+       *    deleteAttraction(), sulla base dell'id dell'ttraction e dell'id dell'utente
+       * 
+       */
+
+       $dl-> destroyAttraction($id, $user->id);
+       return Redirect::to(route('user.adventures'));
+
+
+   }
+
+
 
 
    public function ajaxCheck(Request $req){
@@ -129,4 +240,71 @@ class AttractionController extends Controller
       
       return response()->json($response);
    }
+
+
+
+   public function ajaxAttractionAddDescription(Request $req){
+
+      $dl= new DataLayer();
+
+      $image= $req->file('image');
+
+      $user=$dl->getUser($_SESSION['email']);
+
+        $image= $req->file('image');
+        $image_name=null;
+
+      if($image){
+         $image_name= $req->file('image')->getClientOriginalName();
+
+         // Concateno all'inizio del nome dell'immagine nche l'id dell'utente
+         // => anche se due utenti mettono un immagine con lo stesso nome, non ci sono problemi
+      $image_name= ($user->id).$image_name;  
+
+      //Salvo l'immagine
+      $req->file('image')->storeAs('public/images/', $image_name);  // Salvo l'immagine in storage->app->public->images con il nome con cui l'ho salvata
+
+      }
+
+      $attractionId= $dl->findExistingAttraction(     // Torna l'id dell'attrazione che esiste già
+         $req->input('name'),
+         $req->input('type'),
+         $req->input('street_and_number'),
+         $req->input('city'),
+         $req->input('province')
+      );
+
+      $dl->addAttractionGeneralInfo( 
+         $req->input('price'),
+         $req->input('description'),
+         $req->input('link'), 
+         $image_name,
+         $req->input('stars'),
+         $req->input('public'),
+         $user,
+         $attractionId,
+         //Metti anche image !
+         )  ;
+
+
+         return Redirect::to(route('attraction.index'));
+   }
+
+   public function ajaxEditAttractionNOImage(Request $req){
+
+      
+      $dl=new DataLayer(); 
+
+      
+      $user=$dl->getUser($_SESSION['email']);
+
+
+      $dl->editAttractionNOImage($req->input('id'), $req->input('entity_name'), $req->input('category'), $req->input('price'), $req->input('description')
+      , $req->input('link'), $req->input('stars'), $req->input('public'), $user
+      , $req->input('street_and_number'),$req->input('city'),$req->input('province'),$req->input('country'),$req->input('postcode'));
+  
+      return Redirect::to(route('user.adventures'));
+   }
+
+
 }

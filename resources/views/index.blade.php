@@ -22,7 +22,8 @@ style.css
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Hotels</a></li>
-      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>  
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 
@@ -53,7 +54,7 @@ style.css
                 </div>
 
                 <!--  RIQUADRO CON LINK PER PAGINA-->
-                <a class="carousel-link-text-a" href="Itinerari.html">
+                <a class="carousel-link-text-a" href="{{route('travel.index')}}">
                     <div class="carousel-link">
                     
                         <p>SEE MORE</p> 
@@ -169,7 +170,7 @@ style.css
 
                 </p>
 
-                <a class="btn subscribe" href="{{route('user.create')}}"> Subscribe </a>
+                <a class="btn subscribe" onclick="alreadySubscribed({{$logged}})"> Subscribe </a>
                 
 
             </div>

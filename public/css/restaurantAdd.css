@@ -65,6 +65,23 @@
     }
 }
 
+.externalAlreadyPresent{      /*Definisco il container esterno per il colore*/
+
+    
+    display: flex;
+    justify-content: center; /*posiziono la form al centro*/
+    background-image:url(https://img.freepik.com/premium-vector/organic-food-market-street-food-market-stalls-with-fruits-vegetables-vector-cartoon_273525-490.jpg?w=2000);
+    background-size: cover;
+
+    min-height: calc(100vh - 56px);
+   
+    align-items: center; /*posiziono la form al centro*/
+    padding: 3em;
+    display: flex;
+
+  
+}
+
 
 .container{     /*Definisco il container interno in cui inserisco il div row*/
 

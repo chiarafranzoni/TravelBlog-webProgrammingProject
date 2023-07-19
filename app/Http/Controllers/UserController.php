@@ -73,7 +73,7 @@ class UserController extends Controller
         $dl->addUser($req->input('firstname'), $req->input('lastname'), $req->input('email'), $req->input('telephone')
                     , $req->input('password'), $req->input('street_and_number'),$req->input('city'),$req->input('province'),$req->input('country'),$req->input('postcode'));
         
-        return Redirect::to(route('home')); // Importa la classe Redirect!!
+        return Redirect::to(route('user.login')); // Importa la classe Redirect!!
     }
 
 
@@ -110,8 +110,96 @@ class UserController extends Controller
         $restaurants=array(); 
         $restaurants=$dl->getUserRestaurant($_SESSION['email']);
 
+        $travels=array(); 
+        $travels=$dl->getUserTravel($_SESSION['email']);
 
-        return view('user.adventures')->with('housings_list', $housings)->with('attractions_list', $attractions)->with('restaurants_list', $restaurants)->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
+
+        return view('user.adventures')->with('housings_list', $housings)->with('attractions_list', $attractions)->with('restaurants_list', $restaurants)->with('travels_list', $travels)->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
     }
+
+    
+   public function ajaxEditProfileNOEmail(Request $req){
+
+    $dl= new DataLayer();
+
+    $user=$dl->getUser($_SESSION['email']);
+
+    $dl->editProfileWithNOEmail( 
+       $req->input('firstname'),
+       $req->input('lastname'),
+       $req->input('password'),
+       $user
+    );
+
+    
+
+ }
+
+  public function ajaxEditProfileWITHEmail(Request $req){
+
+    $dl= new DataLayer();
+
+    $exist=$dl->userExist($req->input('email'));
+
+    if($exist){  // Se esiste già un utente con quella mail
+
+        $response=array("found"=>true);
+        
+        return response()->json($response);
+      
+    }
+
+        $user=$dl->getUser($req->input('old_email'));
+
+        $dl->editProfileWithEmail( 
+            $req->input('firstname'),
+            $req->input('lastname'),
+            $req->input('password'),
+            $req->input('email'),
+            $user
+        );
+
+    
+  }
+
+
+  public function addressUpdate(Request $req){
+
+    $dl= new DataLayer();
+    $user=$dl->getUser($_SESSION['email']);
+
+    $dl->editAddress( 
+        $req->input('street_and_number'),
+        $req->input('city'),
+        $req->input('province'),
+        $req->input('country'),
+        $req->input('postcode'),
+        $user
+    );
+
+
+    return view('user.profile')->with('logged',true)->with('loggedName', $_SESSION['loggedName'])->with('user', $user) ;
+  }
+  
+  public function ajaxVerifySub(Request $req){
+
+    
+    $dl= new DataLayer();
+
+    $exist=$dl->userExist($req->input('email'));
+
+    if($exist){  // Se esiste già un utente con quella mail
+
+        $response=array("found"=>true);
+        
+        
+    }else{
+        $response=array("found"=>false);
+    }
+
+    return response()->json($response);
+    
+
+  }
 
 }

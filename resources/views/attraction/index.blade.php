@@ -23,6 +23,7 @@ elementsList.css
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
       <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 
@@ -93,7 +94,17 @@ elementsList.css
 
                                 <div class="row no-gutters"> <!-- Setta margini a 0-->
                                     <div class="col-xs-7 col-md-6 col-lg-5">
-                                        <img src="{{$attraction->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+
+                                        @if ($attraction->info->place_image == '' || $attraction->info->place_image == 'http://localhost:8000/storage/images' )
+                                            
+                                            <img src="/img/no-image.png"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                            
+                                        @else
+
+                                            <img src="{{$attraction->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                            
+                                        @endif
+
                                     </div>
 
                                     <div class="card-wrapper col-xs-5  col-md-6 col-lg-7">
@@ -116,6 +127,9 @@ elementsList.css
 
                                                     @elseif( value($attraction->type) == 'MOUNTAIN' )
                                                         <i class="fa-solid fa-mountain"></i>
+                                                    
+                                                    @elseif( value($attraction->type) == 'CHURCH' )
+                                                        <i class="fas fa-church"></i>
 
                                                     @elseif( value($attraction->type) == 'SEA' || value($attraction->type) == 'LAKE'  )
                                                         <i class="bi bi-water"></i>

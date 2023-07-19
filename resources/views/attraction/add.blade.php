@@ -23,6 +23,7 @@ attractionAdd.css
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
       <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 @endsection
@@ -55,7 +56,7 @@ attractionAdd.css
             <label for="name"> Name</label>
             <div class="input-box" id="name-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
+              <i class="bi bi-shop"></i>
               <input class='form-control' type="text" id="name" name="name" placeholder="Name" oninput="handleChange(event)"> <!--Con placeholder, inserisco un terto provvisorio-->
 
             </div>
@@ -67,13 +68,13 @@ attractionAdd.css
             <label for="category"> Category</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
-              
+                
+              <i class="bi bi-tag"></i>              
               <select class="form-select " type="text" id="category" name="category" placeholder="Category" oninput="handleChange(event)">
                 
                 <option selected>Category</option>
 
-                @foreach (['MUSEUM', 'PARK', 'GARDEN', 'SQUARE', 'LAKE','SEA','MOUNTAIN','CITY'] as $item)
+                @foreach (['MUSEUM', 'PARK', 'GARDEN', 'SQUARE', 'LAKE','SEA','MOUNTAIN','CITY','CHURCH'] as $item)
 
                 <option value="{{$item}}">{{strtolower($item)}}</option>
                     
@@ -93,7 +94,7 @@ attractionAdd.css
             <label for="price">Price</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
+              <i class="bi bi-currency-dollar"></i>
 
               <select class="form-select " id="price" name="price" oninput="handleChange(event)">
                 <option selected>Price</option>
@@ -127,7 +128,7 @@ attractionAdd.css
             <label for="link"> Link</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
+              <i class="bi bi-link"></i>
               <input class='form-control' type="text" id="link" name="link" placeholder="Insert a useful link for other users"> 
 
             </div>
@@ -138,8 +139,8 @@ attractionAdd.css
             <label for="image"> Image</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
-              <input class='form-control' type="file" id="image" name="image" placeholder="Image"> 
+              <i class="bi bi-card-image"></i>
+              <input class='form-control' accept="image/png, image/jpeg"  type="file" id="image" name="image" placeholder="Image"> 
 
             </div>
 
@@ -148,7 +149,7 @@ attractionAdd.css
             <label for="stars"> Stars</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-person"></i>
+                <i class="bi bi-star-fill"></i>
               <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars"  oninput="handleChange(event)"> 
 
             </div>
@@ -214,7 +215,7 @@ attractionAdd.css
             <br>
 
             <a class="btn btn-secondary" href="{{route('attraction.index')}}"> Cancel</a>
-            <input class="btn subscribeForm-btn" type="submit" value="Submit" onclick="checkForm(event,'ATTRACTION');">
+            <input class="btn subscribeForm-btn" type="submit" value="Submit" onclick="checkForm(event,'ATTRACTION', 'Submit');">
           
             <!-- CONTROLLO SULLA FORM: creo un script checkForm nel file js, passando il parametro event, usato per prevenire l'azione di default-->
            
@@ -252,9 +253,9 @@ attractionAdd.css
 
                 <div style="display: flex; justify-content:center; margin-top:3em;">
                 
-                    <button class="btn btn-light" style="margin-right: 1.5em"> Go back</button>
+                   <a href="{{route('attraction.index')}}"> <button class="btn btn-light" style="margin-right: 1.5em"> Go back</button> </a>
                     
-                    <button class="btn btn-success"> Proceed </button>
+                  <button class="btn btn-success" onclick="addProceed('ATTRACTION')"> Proceed </button>
                 </div>
             </div>
         </div>

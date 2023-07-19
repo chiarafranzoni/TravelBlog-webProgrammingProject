@@ -23,6 +23,7 @@ formLogin.css
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
       <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 @endsection

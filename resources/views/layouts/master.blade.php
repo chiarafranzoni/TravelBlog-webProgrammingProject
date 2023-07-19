@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{{ url('/')}}/css/@yield('stile')">  <!-- Per applicare una formattazione css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Pe usare le icone bootrstrap-->
         
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link 
         href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
@@ -69,7 +70,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{route('user.profile')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="{{route('user.adventures')}}"><i class="bi bi-globe-europe-africa" style="padding-right: 15px"></i>Your adventure</a></li>
+                    <li><a class="dropdown-item" href="{{route('user.adventures')}}"><i class="bi bi-globe-europe-africa" style="padding-right: 15px"></i>Your adventures</a></li>
                     <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-power " style="padding-right: 15px"></i>Logout</a></li>
                   </ul>
                 </li>

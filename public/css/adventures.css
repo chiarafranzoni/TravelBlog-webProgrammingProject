@@ -109,6 +109,20 @@ color:black ;
     text-shadow: 2px 2px maroon;
 }
 
+.travel_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color: darkorange;
+    text-shadow: 2px 2px orangered;
+}
+
 .noElement{
     font-size: large;
     text-align: center;

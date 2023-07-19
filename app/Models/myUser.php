@@ -56,4 +56,12 @@ class myUser extends Authenticatable
         return $this->hasMany(GeneralInfo::class,'myuser_id'); /*L'utente può inserire più esperienze, ovvero più general info*/
 
     }
+
+    public function travel(){    // Utente a cui è legato l'address
+
+        return $this->hasMany(Travel::class,'myuser_id'); /*L'utente può inserire più esperienze, ovvero più travel*/
+
+    }
+
+
 }

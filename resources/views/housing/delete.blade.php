@@ -1,9 +1,9 @@
-@extends('layouts.form') 
+@extends('layouts.master') 
 <!-- Prendo il template realizzato in layout.master e sostituisco tutti i place holder @-->
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->
 @section('title') 
-    Login
+    Delete Housing
 @endsection
 
 @section('stile')
@@ -40,35 +40,30 @@ error.css
 
       <div class="row ">
 
-        <div class="title-text">
-            <h3>OPS... </h3>
+        <div class="subtitle-text">
+            <h3>Are you sure?</h3>
         </div>
 
-        <div class="subtitle-text">
-            <h3>something went wrong</h3>
-        </div>
+        <br>
 
         <!-- Con metodo post: aggiungo queste info a database, invocando il metodo store nello UserController-->
             <div class="holder">
 
-                <p> It seems that you have used wrong the credential !</p>
+                <p>You really want to delete <strong>{{$housing->name}}</strong> ?</p>
 
             </div>
 
             <div class="holderB">
                 <p>
-                    <a class="btn btn-secondary" href="{{ route('home') }}">Back to the Home page</a>
+                    <a class="btn btn-secondary" style="margin-right: 2em"  href="{{route('user.adventures')}} ">Go back</a>
+                </p>
+
+                <p>
+                    <a class="btn btn-danger"  href="{{ route('housing.cancella',['id' => $housing->id])}}">Delete</a>
                 </p>
             </div>
 
-            <div class="holderA">
-                <p>Don't have an account yet?</p>
-                <a href="{{route('user.create')}}"> 
-                    <p> Subscribe now !</p>
-                </a>
-              
-
-            </div>
+    
         </div>
           
         

@@ -23,6 +23,7 @@ elementsList.css
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
       <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 
@@ -93,7 +94,15 @@ elementsList.css
 
                                 <div class="row no-gutters"> <!-- Setta margini a 0-->
                                     <div class="col-xs-7 col-md-6 col-lg-5">
-                                        <img src="{{$housing->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                        @if ($housing->info->place_image == '' || $housing->info->place_image == 'http://localhost:8000/storage/images' )
+                                            
+                                            <img src="/img/no-image.png"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                            
+                                        @else
+
+                                            <img src="{{$housing->info->place_image}}"  alt="Photo" class="card-img h-100"  style="border-radius: 3px;">
+                                            
+                                        @endif
                                     </div>
 
                                     

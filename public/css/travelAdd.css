@@ -23,8 +23,8 @@
     font-weight: 700;
     letter-spacing: 0px;
 
-    color:rgb(45, 177, 177) ;
-    text-shadow: 2px 2px darkblue;
+    color:darkorange;
+    text-shadow: 2px 2px orangered;
    
     @media screen and (max-width: 621px) {  /*Finchè la grandezza è sotto i 600px*/
        
@@ -47,30 +47,33 @@
     
     display: flex;
     align-items: center; /*posiziono la form al centro*/
-    background-image:url(https://img.freepik.com/free-vector/tree-house-ladder-composition_1284-64988.jpg?w=2000);
+    background-image:url(https://img.freepik.com/free-vector/railway-station-mountains-autumn-landscape_33099-1743.jpg?w=996&t=st=1689687279~exp=1689687879~hmac=4e1ca7b813f711117d8661db028ecae7150996107fd0dc9dc44a361427cfa146);
     background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
+   
     align-items: center; /*posiziono la form al centro*/
     padding: 3em;
-
-    @media screen and (max-width: 800px) {  /*Finchè la grandezza è sotto i 600px*/
-       
-        background-position: -500px ;
+    display: flex;
+    
+   @media screen and (max-width: 800px) {  
+   
+    background-position: -500px ;
     }
 
-    @media screen and (max-width: 500px) {  /*Finchè la grandezza è sotto i 600px*/
-       
+    @media screen and (max-width: 500px) { 
+    
         padding: 1.5em;
     }
+
+  
 }
 
+ 
 .externalAlreadyPresent{      /*Definisco il container esterno per il colore*/
 
     
     display: flex;
     justify-content: center; /*posiziono la form al centro*/
-    background-image:url(https://img.freepik.com/free-vector/tree-house-ladder-composition_1284-64988.jpg?w=2000);
+    background-image:url(https://img.freepik.com/free-vector/railway-station-mountains-autumn-landscape_33099-1743.jpg?w=996&t=st=1689687279~exp=1689687879~hmac=4e1ca7b813f711117d8661db028ecae7150996107fd0dc9dc44a361427cfa146);
     background-size: cover;
 
     min-height: calc(100vh - 56px);
@@ -208,4 +211,43 @@ option{
     font-family: 'Lucida Sans';
 
 }
+.container .dropdown {
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
 
+.container .dropdown button{
+    width: 100%;
+    padding-left: 3em;
+    background-color: white!important;
+    color: black!important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .dropdown .dropdown-menu{
+    padding: 5px;
+    
+}
+.container .dropdown .dropdown-menu li{
+
+    display: flex;
+    justify-content:flex-start; 
+    gap:12px;
+}
+
+.container .dropdown .dropdown-menu input{
+
+    width: 20px;
+    padding: 0px;
+}
+
+#stageContainer{
+
+    padding-left: 0.5em;
+    font-family: Oswald;
+    font-size: 17px;
+
+
+}

@@ -3,11 +3,11 @@
 
  <!--Definisco ciò che voglio mettere al posto del placeholder title-->
 @section('title') 
-    Add Housing
+    Edit Attraction
 @endsection
 
 @section('stile')
-housingAdd.css
+attractionAdd.css
 @endsection
 
 @section('left-navbar')
@@ -40,12 +40,14 @@ housingAdd.css
       <div class="row">
 
         <div class="title-text">
-          <h3 > Add Housing </h3>
+          <h3 > Edit Attraction </h3>
+          <span id="IDSpan" style="display: none" value='{{$attraction->id}}'>{{$attraction->id}}</span>
 
         </div>
 
         <!-- Con metodo post: aggiungo queste info a database, invocando il metodo store nello UserController-->
-        <form name='housing' method="post" action="{{route('housing.store')}}" enctype="multipart/form-data">
+        <form name='attraction' method="post" action="{{route('attraction.update', ['attraction' => $attraction->id])}}" enctype="multipart/form-data">
+            @method('PUT')
             @csrf  <!-- OBBLIGATORIO PER SICUREZZA dopo ogni form: cross site request forgery-->
 
 
@@ -56,8 +58,8 @@ housingAdd.css
             <label for="name"> Name</label>
             <div class="input-box" id="name-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-shop"></i>
-              <input class='form-control' type="text" id="name" name="name" placeholder="Name" oninput="handleChange(event)"> <!--Con placeholder, inserisco un terto provvisorio-->
+                <i class="bi bi-shop"></i>
+              <input class='form-control' type="text" id="name" name="name" placeholder="Name" value="{{$attraction->name}}" oninput="handleChange(event)"> <!--Con placeholder, inserisco un terto provvisorio-->
 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
@@ -68,13 +70,12 @@ housingAdd.css
             <label for="category"> Category</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-                
-              <i class="bi bi-tag"></i>              
+              <i class="bi bi-tag"></i>
               <select class="form-select " type="text" id="category" name="category" placeholder="Category" oninput="handleChange(event)">
                 
-                <option selected>Category</option>
+                <option selected>{{$attraction->type}}</option>
 
-                @foreach (['CHALET', 'B&B', 'HOTEL','CAMPING','HOLIDAY VILLAGE','CABIN','TREEHOUSE','CASTLE','HOUSEBOAT','TRULLO'] as $item)
+                @foreach (['MUSEUM', 'PARK', 'GARDEN', 'SQUARE', 'LAKE','SEA','MOUNTAIN','CITY','CHURCH'] as $item)
 
                 <option value="{{$item}}">{{strtolower($item)}}</option>
                     
@@ -97,7 +98,7 @@ housingAdd.css
               <i class="bi bi-currency-dollar"></i>
 
               <select class="form-select " id="price" name="price" oninput="handleChange(event)">
-                <option selected>Price</option>
+                <option selected>{{$attraction->info->price}}</option>
 
                 @foreach (['ECONOMIC', 'AVERAGE', 'EXPENSIVE'] as $item)
 
@@ -116,8 +117,8 @@ housingAdd.css
             <label for="description"> Description</label>
             <div class="input-box">
 
-              <textarea class='form-control' type="text" id="description" name="description" placeholder="Description" rows="5" oninput="handleChange(event)"></textarea>
-
+              <textarea class='form-control' type="text" id="description" name="description" placeholder="Description" rows="5" 
+              oninput="handleChange(event)">{{$attraction->info->description}}</textarea>
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
             <span class='invalid-input' id="invalid-description" style="color:red;"></span>
@@ -129,7 +130,7 @@ housingAdd.css
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
               <i class="bi bi-link"></i>
-              <input class='form-control' type="text" id="link" name="link" placeholder="Insert a useful link for other users"> 
+              <input class='form-control' type="text" id="link" name="link" placeholder="Insert a useful link for other users" value="{{$attraction->info->link}}"> 
 
             </div>
             
@@ -139,10 +140,28 @@ housingAdd.css
             <label for="image"> Image</label>
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
-              <i class="bi bi-card-image"></i>
-              <input class='form-control'accept="image/png, image/jpeg"  type="file" id="image" name="image" placeholder="Image"> 
 
+              <i class="bi bi-card-image"></i>
+              <input class='form-control'accept="image/png, image/jpeg"  type="file" id="image" name="image" placeholder="Image" > 
             </div>
+
+            <br>
+
+            <label for="image"> Old Image </label>
+            <div class="input-box" style="display: flex; justify-content:center;">
+                <!-- Con for associo la label al campo id dell'input-->
+
+                @if ($attraction->info->place_image == '' || $attraction->info->place_image == 'http://localhost:8000/storage/images')
+
+                <p> NO OLD IMAGE PRESENT</p>
+                
+            @else
+
+                 <img src=" {{$attraction->info->place_image}}" class="d-block w-100">
+                
+            @endif 
+            </div>
+            
 
             <br>
 
@@ -150,7 +169,7 @@ housingAdd.css
             <div class="input-box">
                 <!-- Con for associo la label al campo id dell'input-->
                 <i class="bi bi-star-fill"></i>
-              <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars"  oninput="handleChange(event)"> 
+              <input class='form-control' type="text" id="stars" name="stars" placeholder="Stars" value="{{$attraction->info->stars}}" oninput="handleChange(event)" > 
 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
@@ -162,7 +181,16 @@ housingAdd.css
             <label for="public"> Public</label>
 
               <div class='form-control1'>
-                <input  type="checkbox" id="public" name="public" placeholder="Public"> 
+
+                @if(value($attraction->info->public))
+
+                <input  type="checkbox" id="public" name="public" placeholder="Public" checked="true" > 
+
+              @else
+                <input  type="checkbox" id="public" name="public" placeholder="Public" > 
+
+              
+              @endif
                 <span> Do you want to make this visible to others?</span>
               </div>            
           
@@ -172,7 +200,7 @@ housingAdd.css
 
             <label for="street_and_number"> Street and Number</label> 
             <div class="address-box">  
-              <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number"  oninput="handleChange(event)"> 
+              <input class='form-control' type="text" id="street_and_number" name="street_and_number" placeholder="Street and Number" value="{{$address->street_and_number}}"  oninput="handleChange(event)"> 
             </div>
             <!-- INserisco dei messaggi in caso di info errate-->
             <span class='invalid-input' id="invalid-street_and_number" style="color:red;"></span>
@@ -182,7 +210,7 @@ housingAdd.css
 
             <label for="city"> City</label>
             <div class="address-box">                
-              <input class='form-control' type="text" id="city" name="city" placeholder="City"  oninput="handleChange(event)"> 
+              <input class='form-control' type="text" id="city" name="city" placeholder="City" value="{{$address->city}}"  oninput="handleChange(event)"> 
             </div>
              <!-- INserisco dei messaggi in caso di info errate-->
              <span class='invalid-input' id="invalid-city" style="color:red;"></span>
@@ -192,7 +220,7 @@ housingAdd.css
 
             <label for="province"> Province</label>
             <div class="address-box">                
-              <input class='form-control' type="text" id="province" name="province" placeholder="Province"  oninput="handleChange(event)"> 
+              <input class='form-control' type="text" id="province" name="province" placeholder="Province" value="{{$address->province}}" oninput="handleChange(event)"> 
             </div>
              <!-- INserisco dei messaggi in caso di info errate-->
              <span class='invalid-input' id="invalid-province" style="color:red;"></span>
@@ -202,20 +230,20 @@ housingAdd.css
 
             <label for="country"> Country</label>  
             <div class="address-box">              
-              <input class='form-control' type="text" id="country" name="country" placeholder="Country"> 
+              <input class='form-control' type="text" id="country" name="country" placeholder="Country" value="{{$address->country}}"> 
             </div>
 
             <br>
 
             <label for="postcode"> Postcode</label> 
             <div class="address-box">               
-              <input class='form-control' type="text" id="postcode" name="postcode" placeholder="Postcode"> 
+              <input class='form-control' type="text" id="postcode" name="postcode" placeholder="Postcode" value="{{$address->postcode}}"> 
             </div>
 
             <br>
 
-            <a class="btn btn-secondary" href="{{route('housing.index')}}"> Cancel</a>
-            <input class="btn subscribeForm-btn" type="submit" value="Submit" onclick="checkForm(event,'HOUSING', 'Submit');">
+            <a class="btn btn-secondary" href="{{route('user.adventures')}}"> Cancel</a>
+            <input class="btn subscribeForm-btn" type="submit" value="Save" onclick="checkForm(event,'ATTRACTION', 'Save');">
           
             <!-- CONTROLLO SULLA FORM: creo un script checkForm nel file js, passando il parametro event, usato per prevenire l'azione di default-->
            
@@ -243,19 +271,19 @@ housingAdd.css
         <div class="row">
 
             <div class="title-text">
-              <h3 > Add Housing </h3>
+              <h3 > Add Attraction </h3>
 
             </div>
 
             <div  style="display: block; text-align:center; margin-bottom:2em;  height: 200px">
-                <h5>Hey, this housing has already been insert!</h5>
+                <h5>Hey, this attraction has already been insert!</h5>
                 <h6> If you press PROCEED, your info will be added to the ones already present</h6>
 
                 <div style="display: flex; justify-content:center; margin-top:3em;">
                 
-                   <a href="{{route('housing.index')}}"> <button class="btn btn-light" style="margin-right: 1.5em"> Go back</button> </a>
+                    <button class="btn btn-light" style="margin-right: 1.5em"> Go back</button>
                     
-                  <button class="btn btn-success" onclick="addProceed('HOUSING')"> Proceed </button>
+                    <button class="btn btn-success" onclick="addProceed('ATTRACTION')"> Proceed </button>
                 </div>
             </div>
         </div>
