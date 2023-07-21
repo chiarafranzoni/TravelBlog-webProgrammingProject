@@ -12,16 +12,16 @@ more.css
 
 @section('left-navbar')
 <li class="nav-item">
-    <a class="nav-link active current" aria-current="page" href="{{route('home')}}">Homepage</a>
+    <a class="nav-link active " aria-current="page" href="{{route('home')}}">Homepage</a>
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle current" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Our favourites <!--Menù dropdown-->
     </a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
-      <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
+      <li><a class="dropdown-item current" href="{{route('housing.index')}}">Housings</a></li>
       <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
       <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
@@ -61,7 +61,9 @@ more.css
 
             @for ($i = 0; $i < count($infos); $i++)
 
-                <a  href="{{$infos[$i]->link}}"><h6 class="link" ><i class="bi bi-link"></i> {{$infos[$i]->link}} </h6></a>
+            @if ($infos[$i]->link != '')
+              <a  href="{{$infos[$i]->link}}"><h6 class="link"><i class="bi bi-link"></i> {{$infos[$i]->link}} </h6></a>
+            @endif
                 
             @endfor
         </div>

@@ -12,17 +12,17 @@ attractionAdd.css
 
 @section('left-navbar')
 <li class="nav-item">
-    <a class="nav-link active current" aria-current="page" href="{{route('home')}}">Homepage</a>
+    <a class="nav-link active " aria-current="page" href="{{route('home')}}">Homepage</a>
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle current" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Our favourites <!--Menù dropdown-->
     </a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
       <li><a class="dropdown-item" href="{{route('housing.index')}}">Housings</a></li>
-      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>
+      <li><a class="dropdown-item current" href="{{route('attraction.index')}}">Attractions</a></li>
       <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
