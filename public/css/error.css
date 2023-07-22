@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
+
+/* INIZIO FORM*/
+
+.external{      /*Definisco il container esterno per il colore*/
+
+    height: calc(100vh - 56px); /* Sottraggo a tutta l'altezza visibile, l'altezza della navbar, per evitare di*/
+    display: flex;
+    align-items: center; /*posiziono la form al centro*/
+    background-image: url('https://thumbs.dreamstime.com/b/desert-road-25803238.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3em;
+    @media screen and (max-width: 518px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding: 1em;
+    }
+}
+
+
+.containerError{     /*Definisco il container interno in cui inserisco il div row*/
+
+    max-width: 50em;
+    width: 100%;
+    background-color: rgba(255, 255,255, 0.7);
+    padding: 0 3em;
+    
+    border-radius: 0.4em;
+    border:3px solid black;
+
+    @media screen and (max-width: 455px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        padding: 0 1em;
+    }
+}
+
+.title-text{
+
+    height: 3em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    
+}
+
+
+.title-text h3{
+
+    text-align: center;
+    font-family: 'Lucida Handwriting';
+    font-size: 50px;
+    font-weight: 700;
+    
+    color: maroon;
+    text-shadow: 2px 2px red;
+
+    @media screen and (max-width: 646px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 45px;
+    }
+
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 40px;
+    }
+
+   
+}
+
+
+.subtitle-text{
+
+    height: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    
+}
+
+.subtitle-text h3{
+
+    text-align: center;
+    font-family: 'Lucida Handwriting';
+    font-size: 35px;
+    font-weight: 700;
+    
+    color: maroon;
+
+    @media screen and (max-width: 646px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 25px;
+    }
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 20px;
+    }
+   
+}
+
+
+.holder{
+    text-align: center;
+    margin-top: 1.5em;
+    background-color: rgba(190,0,0, 0.3);
+    border-radius: 2px;
+    
+}
+
+.holder p{
+
+    margin-top: 1em;
+    text-align: center;
+    font-family: Oswald;
+    font-size: 1.5em;
+
+    @media screen and (max-width: 679px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+       font-size:1em;
+    }
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 0.8em;
+    }
+    
+
+}
+
+.holderB{
+    margin-top: 1.5em;
+    display: flex;
+     align-items: center;
+    justify-content: center;
+    
+}
+
+.holderB a{
+    @media screen and (max-width: 400px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 0.8em;
+    }
+}
+
+.holderA{
+    margin-top: 1em;
+    display: flex;
+     align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 390px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        display: block;
+        text-align:center;
+    }
+    
+}
+
+.holderA p{
+
+    text-align: center;
+    font-family: Oswald;
+    font-size: 1.3em;
+
+    @media screen and (max-width: 575px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 1em;
+    }
+
+}
+
+.holderA a{
+
+    text-align: center;
+    text-decoration: none;
+    margin-left: 1.2em;
+    color: #005F73;  /* colore del backgroud del bottone*/
+
+    @media screen and (max-width: 405px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        position: relative;
+         top: -2em;
+    }
+}
+
+.holderA a :hover{
+    
+color: cornflowerblue;     
+}
+
+
+
+
+/* Fine form */
+
+
+/*
+
+            BUTTON STYLES
+            
+*/
+
+.buttonHolder{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.loginSubmit{
+
+    --bs-btn-bg:  cornflowerblue;  /* colore del backgroud del bottone*/
+    --bs-btn-hover-bg: #005F73;
+    --bs-btn-color: white;
+    --bs-btn-hover-color: white;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    
+}
+
+
+
+
+
+.login{     /* Stile per pulsante Login*/
+
+    --bs-btn-border-color: black;
+    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-bg: darkgray;
+    --bs-btn-color: black;
+    --bs-btn-hover-color: black;
+    --bs-btn-font-size: 0.8em;
+    --bs-btn-padding-x: 0.5em;
+    --bs-btn-padding-y: 0.3em;
+    font-family: 'Lucida Sans';
+    display: flex !important;
+
+}

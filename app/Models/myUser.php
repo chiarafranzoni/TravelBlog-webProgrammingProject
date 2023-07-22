@@ -50,4 +50,18 @@ class myUser extends Authenticatable
     
         // PER BECCARE L'utente associato all'indirizzio: $address-> myuser
     }
+
+    public function generalinfo(){    // Utente a cui è legato l'address
+
+        return $this->hasMany(GeneralInfo::class,'myuser_id'); /*L'utente può inserire più esperienze, ovvero più general info*/
+
+    }
+
+    public function travel(){    // Utente a cui è legato l'address
+
+        return $this->hasMany(Travel::class,'myuser_id'); /*L'utente può inserire più esperienze, ovvero più travel*/
+
+    }
+
+
 }

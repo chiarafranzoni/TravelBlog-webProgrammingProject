@@ -1,0 +1,188 @@
+
+
+.holder{
+    
+        text-align: center;
+        margin-top: 3em;
+        margin-bottom: 5em;
+        
+}
+
+.holder h3{
+
+    text-align: center;
+    margin-bottom: 1em;
+    font-family: 'Lucida Handwriting';
+    font-size: 58px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 55px;
+    }
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 35px;
+    }
+    
+
+}
+
+.top-external{      /* Per avere gli alementi uno in parte all'altro*/
+
+    padding: 2em;
+    margin-bottom: 2em;
+    border-radius: 3px;
+    margin: 3em 5em 3em 5em;
+
+    
+    
+    
+    @media screen and (max-width: 1100px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 2em 3em 2em;
+    }
+    
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.5em 3em 0.5em;
+    }
+    
+    @media screen and (max-width: 600px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.3em 3em 0.3em;
+    }
+    
+}
+
+.info-container{
+    text-align: center;
+    margin-bottom: 2em;
+    
+
+}
+
+.search-container{
+
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        display: block;
+        padding: 0px;
+        text-align: center; 
+ }
+
+}
+
+.search-container input{
+    width: 30%;
+
+    @media screen and (max-width: 730px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 50%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+
+        text-align: center;
+        display: inline-block;
+    }
+   
+}
+
+.search-container select{
+    width: 30%;
+
+    font-size: small;
+
+    @media screen and (max-width: 730px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 50%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+
+        text-align: center;
+        display: inline-block;
+    }
+   
+}
+
+.search-container h6{
+    width: 30%;
+    text-align: right;
+    margin-right: 1em;
+    width: 30%;
+
+    @media screen and (max-width: 730px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 50%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+        
+        text-align: center;
+        display: inline-block;
+        
+    }
+}
+
+
+
+.external{      /* Per avere gli alementi uno in parte all'altro*/
+
+    padding: 2em;
+    margin-bottom: 2em;
+    margin: 3em 5em 3em 5em;
+
+   
+
+    @media screen and (max-width: 1100px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 2em 3em 2em;
+    }
+
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.5em 3em 0.5em;
+    }
+
+    @media screen and (max-width: 600px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.3em 3em 0.3em;
+    }
+   
+}
+
+
+
+.more{
+
+    width: 50%;
+    @media screen and (max-width: 992px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 100%;
+    }
+
+
+}
+
+
+.hidden{
+    
+    font-size: 35px;
+    text-shadow: 1px 1px orangered;
+}
+

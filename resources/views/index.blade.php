@@ -20,9 +20,10 @@ style.css
       Our favourites <!--Menù dropdown-->
     </a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="restaurants.html">Restaurants</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Hotels</a></li>
-      <li><a class="dropdown-item" href="hotels.html">Attractions</a></li>
+      <li><a class="dropdown-item" href="{{route('restaurant.index')}}">Restaurants</a></li>
+      <li><a class="dropdown-item" href="{{route('housing.index')}}">Hotels</a></li>
+      <li><a class="dropdown-item" href="{{route('attraction.index')}}">Attractions</a></li>  
+      <li><a class="dropdown-item" href="{{route('travel.index')}}">Travels</a></li>
     </ul>
 </li>
 
@@ -48,12 +49,12 @@ style.css
                 <!--  TITOLO SLIDE CAROSELLO-->
                 <div class="centered">
                     <div class="carousel-text">
-                    <h5 >Itinerari</h5>
+                    <h5 >Travels</h5>
                     </div>
                 </div>
 
                 <!--  RIQUADRO CON LINK PER PAGINA-->
-                <a class="carousel-link-text-a" href="Itinerari.html">
+                <a class="carousel-link-text-a" href="{{route('travel.index')}}">
                     <div class="carousel-link">
                     
                         <p>SEE MORE</p> 
@@ -88,11 +89,11 @@ style.css
                         <div class="carousel-text">
 
                             <h5 >
-                                @if( $i==0) Attrazioni
+                                @if( $i==0) Attractions
 
-                                @elseif( $i==1) Ristorazione
+                                @elseif( $i==1) Restaurants
                                 
-                                @else Alloggi
+                                @else Housings
                                 
                                 @endif
 
@@ -104,9 +105,9 @@ style.css
                     <!--  RIQUADRO CON LINK PER PAGINA : in modo condizionale scelgo il link-->
 
                     <a class="carousel-link-text-a" 
-                        href="  @if($i==0) Attrazioni.html
-                                @elseif($i==1) PuntiRistoro.html
-                                @else  Alloggi.html
+                        href="  @if($i==0) {{route('attraction.index')}}
+                                @elseif($i==1) {{route('restaurant.index')}}
+                                @else  {{route('housing.index')}}
                                 @endif" >
 
 
@@ -138,56 +139,174 @@ style.css
 
     <!--  FINE CAROSELLO -->
 
-    <div class="empty-space" style="height: 7em"> 
-        <!--  Inserisco dello spazio vuoto alla fine del carosello -->
+    <!--  Info e subscription box -->
+    <div style="overflow:hidden; padding: 1.5em ; margin-bottom: 6em">
+
+        <div class="row" style="padding-top: 3em; overflow:hidden;">
+
+            <!-- NB: la somma eve sempre essere 12 -->
+
+            <div class="col-sm-5 col-md-4" >
+                <!--  Inserisco immagine in parte a info -->
+
+                <img class="info-img" src="img/round-info-border-text.jpg">
+
+            </div>
+
+            <div class="col-sm-7 col-md-8" style="display: block; text-align:center">
+
+                <h2 class="info_text-title" style="margin-bottom: 0.5em"> Discover something special!</h2>
+
+                <p class="info_text" >
+                    Do you want to escape from reality for a little bit? Well, Welcome! <br>
+                    Here you can find stories and photos from various travel destinations around the world,
+                     with insider tips and advice on the best places to visit, eat, and stay. 
+                    Take a look at the experiences that other users have insert or ... 
+                    subscribe now to share your adventures with others and keep your own travel diary to remember all your happy moments!
+
+                </p>
+
+                <a class="btn subscribe" onclick="alreadySubscribed({{$logged}})"> Subscribe now ! </a>
+                
+            </div>
+
+        </div>
     </div>
 
 
-    <div class="row">
+    <div class="holder" style="
+    color:yellowgreen;
+    text-shadow: 2px 2px darkgreen;">
 
-        <!-- NB: la somma eve sempre essere 12 -->
+        <h3> Attractions</h3>
+    </div>
 
-        <div class="col-sm-5 col-md-4">
-            <!--  Inserisco immagine in parte a info -->
+        
+    <div class="top-external" style=" border: 1px solid darkgreen  ;">
 
-            <img class="info-img" src="img/round-info-border-text.jpg">
-
-        </div>
-
-        <div class="col-sm-7 col-md-8">
-
-            <h2 class="info_text-title"> Lorem Ipsum</h2>
-
-            <p class="info_text">
-                Vestibulum non urna tincidunt, convallis purus a, vulputate sapien. Sed cursus eros massa, eget auctor purus vehicula sit amet.
-                Nam euismod dui molestie mauris bibendum venenatis. Aenean ipsum nibh, ornare et malesuada vitae, hendrerit sit amet ante.
-                  Quisque id mattis purus. Nunc elementum consectetur euismod. Sed odio nibh, posuere in semper in, egestas ac dui.
-                  Sed id ultricies risus, eget facilisis mauris. Nulla facilisi.
-                Vivamus venenatis ac nisi eu venenatis. Curabitur eget convallis ligula. 
-                Phasellus tortor sem, pretium at dolor eu, porta fermentum est. Aliquam consectetur massa fermentum, 
-                varius nulla in, porta mauris. Integer placerat nisl et lacus euismod, eu bibendum libero fringilla. 
-                Praesent commodo convallis molestie. Proin sit amet tincidunt tellus, vitae semper quam. 
-                Quisque bibendum diam diam, at consectetur velit ornare eget. Curabitur vel purus ut lectus pulvinar rhoncus. 
-                Sed non gravida nisi, at consequat quam. Integer ultricies vitae lorem condimentum fermentum.
-
+        <div class="info-container ">
+           <p style="  font-family: 'Lucida Handwriting'; font-size:1.3rem;">
+            Hey, wanna have some fun? Or maybe learn something super cool? 
+           </p>
+           <p>
+             Go on and take a look at all the attractions that other people have reviewed or add your own favourite!
+            
             </p>
 
-            <a class="btn subscribe" href="{{route('user.create')}}"> Subscribe </a>
-             
+            <button class="btn add" style="
+            margin-top:1em;
+            background-color: whitesmoke;
+            box-shadow: 1px 1px darkgreen;"> <a class="dropdown-item" href="{{route('attraction.index')}}"> Take a look at the attractions</a></button>
 
         </div>
 
+        
     </div>
 
+    <div class="holder" style="
+    color:rgb(45, 177, 177) ;
+    text-shadow: 2px 2px darkblue;">
+
+        <h3> Housings</h3>
+    </div>
+
+        
+    <div class="top-external" style=" border: 1px solid darkblue  ;">
+
+        <div class="info-container ">
+           <p style="  font-family: 'Lucida Handwriting'; font-size:1.3rem;">
+            Cozy bedroom, awesome views end amazing breakfast. A dream?
+           </p>
+           <p>
+             Go on and take a look at all the housings that other people have reviewed or add your own favourite!
+            
+            </p>
+
+            <button class="btn add" style="
+            margin-top:1em;
+            background-color: rgb(255, 235, 205);
+            box-shadow: 1px 1px darkblue;"><a class="dropdown-item" href="{{route('housing.index')}}"> Take a look at the housings</a></button>
+
+        </div>
+
+        
+    </div>
+
+    <div class="holder" style="
+    color: crimson;
+    text-shadow: 2px 2px maroon;">
+
+        <h3> Restaurants</h3>
+    </div>
+
+        
+    <div class="top-external" style=" border: 1px solid maroon  ;">
+
+        <div class="info-container ">
+           <p style="  font-family: 'Lucida Handwriting'; font-size:1.3rem;">
+            Pizza, ice-cream, hamburger... I bet that now you are hungry!
+           </p>
+           <p>
+             Go on and take a look at all the restaurants that other people have reviewed or add your own favourite!
+            
+            </p>
+
+            <button class="btn add" style="
+            margin-top:1em;
+            background-color: lightgoldenrodyellow;;
+            box-shadow: 1px 1px  rgb(220,20,60);"><a class="dropdown-item" href="{{route('restaurant.index')}}"> Take a look at the restaurants</a></button>
+
+        </div>
+
+        
+    </div>
+
+    
+    <div class="holder" style="
+    color: darkorange;
+    text-shadow: 2px 2px orangered;">
+
+        <h3> Travels</h3>
+    </div>
+
+        
+    <div class="top-external" style=" border: 1px solid orangered  ;">
+
+        <div class="info-container ">
+           <p style="  font-family: 'Lucida Handwriting'; font-size:1.3rem;">
+            A beautiful adventure is like a diamod...it lasts forever!
+           </p>
+           <p>
+             Go on and take a look at all the trevel that other people have insert or add your own !
+            
+            </p>
+
+            <button class="btn add" style="
+            margin-top:1em;
+            background-color: rgba(241, 235, 255, 0.6);
+            box-shadow: 1px 1px  orangered;" ><a class="dropdown-item" href="{{route('travel.index')}}"> Take a look at the travels</a></button>
+
+        </div>
+
+        
+    </div>
+
+
+    
 @endsection
 
 
 @section('footer')
 
-    <div class="container">
-        <small>
-            Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
-        </small>
-    </div>
+
+    <footer class="page-footer">
+
+        <div class="container ">
+            <small>
+                Always ready to inspire you  <span><i class="bi bi-airplane-fill"> </i></span> 
+            </small>
+        </div>
+    
+    </footer>
 
 @endsection

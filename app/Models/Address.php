@@ -25,6 +25,23 @@ class Address extends Model
 
     // Sarà da fare anche per Restaurant, Attraction e Housing
 
+    public function restaurant(){    // Utente a cui è legato l'address
+
+        return $this->hasOne(Restaurant::class,'address_id');
+
+    }
+
+    public function housing(){    // Utente a cui è legato l'address
+
+        return $this->hasOne(Housing::class,'address_id');
+
+    }
+
+    public function attraction(){    // Utente a cui è legato l'address
+
+        return $this->hasOne(Attraction::class,'address_id');
+
+    }
 
 
 }

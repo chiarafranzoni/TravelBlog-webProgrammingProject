@@ -20,19 +20,35 @@
         <!-- bootstrap.min.css : non ha gli spazi per risparmare memoria != bootstrap.css -->
 
         <link rel="stylesheet" href="{{ url('/')}}/css/bootstrap.min.css">  <!-- dice dove trovare il file bootstap.min.css, per trovare sempre gli URL-->
+        <link rel="stylesheet" href="{{ url('/')}}/css/general.css">  <!-- dice dove trovare il file bootstap.min.css, per trovare sempre gli URL-->
 
         <link rel="stylesheet" href="{{ url('/')}}/css/@yield('stile')">  <!-- Per applicare una formattazione css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Pe usare le icone bootrstrap-->
+        
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link 
+        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+        rel="stylesheet"  type='text/css'>
+ 
+
 
         <!-- Javascript -->
         <script src="{{ url('/')}}/js/bootstrap.bundle.min.js"></script>  <!-- Per riuscire ad includere javascript-->
+        <script src="{{ url('/')}}/js/toggle.js"></script>                <!-- Per riuscire a fare il toggle della password e dell'icona-->
+        <script src="{{ url('/')}}/js/formCheck.js"></script>                <!-- Per riuscire a fare il toggle della password e dell'icona-->
+      
+      
         <script src="http://code.jquery.com/jquery.js"></script>
+
     </head>
 
     <body>
 
         <!-- PER CREARE UNA NAVBAR-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+      
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,26 +59,40 @@
                 </ul>
               </div>
 
-              <!-- CAMBIA-->
-              <a class="btn login" href="{{route('user.login')}}"> Login </a>
+              <!-- NEl FRONT CONTROLLER: faccio un controllo sul login, per poi settare correttamente il booleano $logged-->
+
+              
+            
+              @if($logged)
+                <li class="nav-item dropdown dropdown-menu-right" style="list-style-type: none">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome {{$loggedName}}<!--Menù dropdown-->
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{route('user.profile')}}"><i class="bi bi-gear" style="padding-right: 10px"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="{{route('user.adventures')}}"><i class="bi bi-globe-europe-africa" style="padding-right: 15px"></i>Your adventures</a></li>
+                    <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-power " style="padding-right: 15px"></i>Logout</a></li>
+                  </ul>
+                </li>
+              @else
+                <a class="btn login" href="{{route('user.login')}}"> Login </a>
+          
+              @endif
+
             </div>
           </nav>
 
           <div class="container">
               @yield('breadcrumb')
           </div>
-
-    
             
             @yield('corpo')    
 
     </body>
 
 
-  <footer class="page-footer">
-
     @yield('footer') 
   
-  </footer>
+  
    
 </html>

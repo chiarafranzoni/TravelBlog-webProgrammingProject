@@ -1,0 +1,497 @@
+.btn-back{
+
+    margin-top: 1em;
+    margin-left: 1em;
+    
+}
+
+.holder{
+    
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+
+}
+
+.holder h3{
+
+text-align: center;
+margin-bottom: 1em;
+font-family: 'Lucida Handwriting';
+font-size: 58px;
+line-height: 50px;
+font-weight: 700;
+letter-spacing: 0px;
+
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 55px;
+    }
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        font-size: 35px;
+    }
+
+}
+
+.info{
+
+    margin-top: 1em;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 900px;
+
+    padding: 1em 3em 1em 3em;
+
+    @media screen and (max-width: 1000px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+         width: 700px;
+         padding: 1em 3em 1em 3em;
+
+    }
+    @media screen and (max-width: 775px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 500px;
+        padding: 1em 1em 1em 1em;
+
+   }
+   @media screen and (max-width: 550px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+    width: 300px;
+    padding: 1em 1em 1em 1em;
+
+    }
+
+}
+
+.gallery{
+       
+    margin-top: 3em;
+    margin-bottom: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.image-gallery{
+
+    margin-top: 3em;
+    margin-bottom: 5em;
+    display: flex;
+    justify-content: center;
+
+    
+
+}
+
+
+.image{
+
+    text-align: center;
+
+}
+
+.carousel{
+
+    overflow: hidden;
+}
+.carousel-item{
+    overflow: hidden;
+
+}
+
+
+img{
+
+    
+    margin-top: 1em;
+    width: 700px;
+    height: 450px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+            width: 100% !important;
+            height: auto;
+            
+        }
+}
+
+.comments{
+
+    text-align: center;
+
+}
+
+.carousel-comment{
+
+    margin-top: 1em;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 700px;
+
+    padding: 1em 3em 1em 3em;
+
+    @media screen and (max-width: 1000px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 500px;
+        padding: 1em 2em 1em 2em;
+
+   }
+   @media screen and (max-width: 775px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+    width: 300px;
+    padding: 1em 2em 1em 2em;
+
+    }
+}
+
+.carousel-comment * {
+
+    font-family: 'Poppins';
+    color: black;
+}
+
+.gallery h3,h6{
+    color: black;
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+.gallery a{  
+  text-decoration: none;
+  color: black;
+  
+  font-family: 'Poppins';
+  word-wrap: break-word;
+}
+
+.link:hover{  
+    color: darkslategrey;
+  }
+
+.link{
+
+    display: inline-block;
+    word-break: break-all;
+}
+
+
+
+.carousel-caption{
+    
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 0px;
+}
+
+
+.top-rating {
+
+    margin-left:10px;
+    position: relative;
+    top: -3px;
+    background-color: gold;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+
+}
+
+.price-btn{
+
+    margin-top: 1em;
+    background-color: olivedrab;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    pointer-events: none;
+
+}
+
+.price-btn:hover{
+
+    margin-top: 1em;
+    background-color: olivedrab;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+
+}
+
+
+.top-external{      /* Per avere gli alementi uno in parte all'altro*/
+
+    margin-bottom: 2em;
+    border-radius: 3px;
+
+    padding: 1em 3em 1em 3em;
+        
+    width: 900px;
+
+    @media screen and (max-width: 1000px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+         width: 900px;
+         padding: 1em 3em 1em 3em;
+
+    }
+    @media screen and (max-width: 800px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 600px;
+        padding: 1em 1em 1em 1em;
+
+   }
+   @media screen and (max-width: 550px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+    width: 500px;
+    padding: 1em 1em 1em 1em;
+
+    }
+}
+
+.search-container{
+
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        display: block;
+        padding: 0px;
+        text-align: center; 
+ }
+
+}
+
+.search-container select{
+    width: 30%;
+
+    @media screen and (max-width: 800px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 70%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+
+        text-align: center;
+        display: inline-block;
+    }
+   
+}
+
+.search-container h6{
+    width: 30%;
+    text-align: right;
+    margin-right: 1em;
+    width: 30%;
+
+    @media screen and (max-width: 800px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 70%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        width: 80%;
+        
+        text-align: center;
+        display: inline-block;
+        
+    }
+}
+
+.hidden{
+    
+    font-size: 35px;
+    text-shadow: 1px 1px orangered;
+}
+
+.stage{
+
+    margin-top: 1em;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 1200px;
+
+    padding: 1em 3em 1em 3em;
+
+    @media screen and (max-width: 1200px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 900px;
+        padding: 1em 3em 1em 3em;
+
+   }
+
+    @media screen and (max-width: 900px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+         width: 700px;
+         padding: 1em 2em 1em 2em;
+
+    }
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 500px;
+        padding: 1em 1em 1em 1em;
+
+   }
+   @media screen and (max-width: 550px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+    width: 400px;
+    padding: 1em 1em 1em 1em;
+
+    }
+    @media screen and (max-width: 450px) {  /*Finchè la grandezza è sotto i 600px*/
+        
+        width: 350px;
+        padding: 1em 1em 1em 1em;
+    
+        }
+
+}
+
+
+
+
+.container{
+
+    margin-top: 1em;
+    
+}
+
+.housing_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color:rgb(45, 177, 177) ;
+    text-shadow: 2px 2px darkblue;
+}
+
+.attraction_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color:yellowgreen;
+    text-shadow: 2px 2px darkgreen;
+}
+
+.restaurant_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color: crimson;
+    text-shadow: 2px 2px maroon;
+}
+
+.travel_title{
+
+    font-family: 'Lucida Handwriting';
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 700;
+    letter-spacing: 0px;
+
+    margin-bottom: 2rem;
+
+    color: darkorange;
+    text-shadow: 2px 2px orangered;
+}
+
+.noElement{
+    font-size: large;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  
+    .card {
+      flex: 0 0 auto;
+    }
+  }
+
+  .card {
+    display: inline-block;
+    min-height: 300px;
+
+    max-width: 700px;
+
+    @media screen and (max-width: 900px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+        max-width: 600px;
+     }
+
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+       max-width: 400px;
+    }
+
+    @media screen and (max-width: 576px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+        max-width: 300px;
+     }
+
+     @media screen and (max-width: 445px) {  /*Finchè la grandezza è sotto i 600px*/
+          
+        max-width: 250px;
+     }
+    
+    
+    }
+
+
+    .link:hover{  
+        color: darkslategrey;
+      }
+
+    .link{
+
+        display: inline-block;
+        word-break: break-all;
+    }
+  
+
+  
+
+

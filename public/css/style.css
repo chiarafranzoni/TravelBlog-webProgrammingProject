@@ -9,14 +9,7 @@ body{
     color: black;
 }
 
-/* NAVBAR*/
 
-.current{   /* È la classe associata ad Home*/
-    background-color:  darkgray;
-
-}
-
-/*Fine navbar*/
 
 .header-sezione{
 
@@ -72,6 +65,19 @@ body{
     position: relative;
     text-align: center;
     text-shadow: 2px 2px cornflowerblue;
+
+    @media screen and (max-width: 500px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        font-size:  3rem;
+    }
+    @media screen and (max-width: 450px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        font-size:  2.5rem;
+    }
+    @media screen and (max-width: 450px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        font-size:  2rem;
+    }
     
 }
 
@@ -90,6 +96,19 @@ body{
     align-items: center;
     border: 1px solid black;
     border-radius: 5px 5px 5px 5px;
+
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        top: 70%;
+        width: 25%;
+    }
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        top: 75%;
+        width: 30%;
+    }
+    
     
   }
 
@@ -116,6 +135,12 @@ body{
     font-weight: 150;
     color:white;
     text-align: center;  
+
+    @media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        font-size: 0.8rem;
+        
+    }
    
  }
    
@@ -130,20 +155,6 @@ body{
 /*Fine carosello*/
 
 
-/******     FOOTER      *********/
-
-    footer {
-        font-size: 1rem;
-        text-align:center ;
-        font-family: 'Lucida Sans';
-        padding: 10px 0;
-        border-top: 2px solid rgb(55, 117, 231);
-    }
-    
-    footer span{
-        color:cornflowerblue;
-    }
-/*Fine Footer*/
 
 table{
     width: 100%;
@@ -159,6 +170,14 @@ table{
     max-width: 75%;
     text-align: center;
     height: auto;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 575px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        padding-left: 20px;
+        padding-right: 20px;
+        
+    }
 }
 
 /* TITOLO TESTO INFO*/
@@ -167,23 +186,46 @@ table{
     font-family: 'Lucida Handwriting';
     font-size: 48px;
     line-height: 50px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0px;
     
     color: #AE2012;
+
+    @media screen and (max-width: 700px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        font-size: 35px;
+        
+    }
+
+    @media screen and (max-width: 575px) {  /*Finchè la grandezza è sotto i 600px*/
+       
+        margin-top: 1em;
+        
+    }
+
+
 
 }
 
 .info_text{
 
-    padding-right: 2em;
     font-family: 'Poppins';
     font-size: 18px;
     line-height: 30px;
+    
+    box-sizing: border-box;
 
 }
 
-.subscribe{
+/* Fine testo info*/
+
+
+/*
+                BUTTON STYLES
+
+*/
+
+.subscribe{     /* Stile per pulsante Subscribe*/
 
     --bs-btn-bg:  #ee9b00;  /* colore del backgroud del bottone*/
     --bs-btn-hover-bg: #ca6702;
@@ -193,24 +235,71 @@ table{
 
 }
 
-.login{
 
+.holder{
     
-    --bs-btn-border-color: black;
-    --bs-btn-hover-border-color: black;
-    --bs-btn-hover-bg: darkgray;
-    --bs-btn-color: black;
-    --bs-btn-hover-color: black;
-    --bs-btn-font-size: 0.8em;
-    --bs-btn-padding-x: 0.5em;
-    --bs-btn-padding-y: 0.3em;
-    font-family: 'Lucida Sans';
-    display: flex !important;
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: -0.5em;
+    
+}
 
+.holder h3{
 
+text-align: center;
+font-family: 'Lucida Handwriting';
+font-size: 50px;
+line-height: 50px;
+font-weight: 700;
+letter-spacing: 0px;
+
+@media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+    
+    font-size: 45px;
+}
+@media screen and (max-width: 490px) {  /*Finchè la grandezza è sotto i 600px*/
+    
+    font-size: 35px;
+}
 
 
 }
+
+.top-external{      /* Per avere gli alementi uno in parte all'altro*/
+
+    padding: 2em;
+    margin-bottom: 2em;
+    border-radius: 3px;
+    margin: 0em 5em 3em 5em;
+
+    
+    
+    
+    @media screen and (max-width: 1100px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 2em 3em 2em;
+    }
+    
+    @media screen and (max-width: 810px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.5em 3em 0.5em;
+    }
+    
+    @media screen and (max-width: 600px) {  /*Finchè la grandezza è sotto i 600px*/
+      
+        margin: 3em 0.3em 3em 0.3em;
+    }
+    
+}
+
+.info-container{
+    text-align: center;
+    margin-bottom: 2em;
+    
+
+}
+
+
 
 
 
